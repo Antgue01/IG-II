@@ -168,7 +168,7 @@ namespace OgreBites
 
 		bool mFirstRun;
 		Ogre::String mAppName;
-		Ogre::String mSolutionPath;    // IG2: variable para hacer las rutas relativas al directorio de la solución
+		Ogre::String mSolutionPath;    // IG2: variable para hacer las rutas relativas al directorio de la soluciï¿½n
 		
 		Ogre::String mRTShaderLibPath;
 		Ogre::RTShader::ShaderGenerator * mShaderGenerator; // The Shader generator instance.

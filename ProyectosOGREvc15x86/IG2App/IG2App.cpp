@@ -1,5 +1,4 @@
 #include "IG2App.h"
-
 #include <OgreEntity.h>
 #include <OgreInput.h>
 #include <SDL_keycode.h>
