@@ -47,9 +47,7 @@ namespace OgreBites {
 	void IG2ApplicationContext::initApp()
 	{
 		createRoot();
-		mRoot->showConfigDialog(OgreBites::getNativeConfigDialog());
-
-
+		//mRoot->showConfigDialog(OgreBites::getNativeConfigDialog());
 		if (oneTimeConfig())
 			setup();
 	}
