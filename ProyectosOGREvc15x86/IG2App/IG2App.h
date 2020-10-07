@@ -27,6 +27,13 @@ protected:
   Ogre::SceneNode* mCamNode = nullptr;
   Ogre::SceneNode* mSinbadNode = nullptr;
   OgreBites::CameraMan* mCamMgr = nullptr;
+
+  Ogre::SceneNode* Clock = nullptr;
+  Ogre::SceneNode* segundero = nullptr;
+  Ogre::SceneNode* padreEsferas = nullptr;
+  Ogre::SceneNode* minutero = nullptr;
+  Ogre::SceneNode* horas = nullptr;
+  std::vector<Ogre::SceneNode*> spheres = std::vector<Ogre::SceneNode*>();
  
 };
 
