@@ -4,6 +4,8 @@
 #include <OgreInput.h>
 #include <SDL_keycode.h>
 #include <OgreMeshManager.h>
+#include "Aspa.h";
+
 
 using namespace Ogre;
 
@@ -13,7 +15,20 @@ bool IG2App::keyPressed(const OgreBites::KeyboardEvent& evt)
   {
     getRoot()->queueEndRendering();
   }
-  //else if (evt.keysym.sym == SDLK_???)
+  //-----------------APARTADO 3---------------------
+  //else if (evt.keysym.sym == SDLK_g)
+  //{
+
+	 
+	 // ////giramos las aspas
+	 // //if (aspasNode != nullptr)
+		// // aspasNode->roll(Degree(5));
+	 // ////giramos los cilindros
+	 // //for(SceneNode* n : cilindros)
+	 // //{
+		// // n->roll(Degree(-5));
+	 // //}
+  //}
   
   return true;
 }
@@ -27,6 +42,8 @@ void IG2App::shutdown()
 
   delete mTrayMgr;  mTrayMgr = nullptr;
   delete mCamMgr; mCamMgr = nullptr;
+
+  if(aspasMolino!=nullptr) delete aspasMolino;
   
   // do not forget to call the base 
   IG2ApplicationContext::shutdown();
@@ -70,7 +87,7 @@ void IG2App::setupScene(void)
   
   // and tell it to render into the main window
   Viewport* vp = getRenderWindow()->addViewport(cam);
-  //vp->setBackgroundColour(Ogre::ColourValue(1, 1, 1));
+  vp->setBackgroundColour(Ogre::ColourValue(0.7, 0.8, 0.9));
 
   //------------------------------------------------------------------------
 
@@ -91,16 +108,69 @@ void IG2App::setupScene(void)
 
   // finally something to render
 
-  Ogre::Entity* ent = mSM->createEntity("Sinbad.mesh");
 
-  mSinbadNode = mSM->getRootSceneNode()->createChildSceneNode("nSinbad");
-  mSinbadNode->attachObject(ent);
+  //-------------------------APARTADO 1---------------------
 
-  //mSinbadNode->setPosition(400, 100, -300);
-  mSinbadNode->setScale(20, 20, 20);
-  //mSinbadNode->yaw(Ogre::Degree(-45));
-  //mSinbadNode->showBoundingBox(true);
-  //mSinbadNode->setVisible(false);
+  //Nodo aspa
+  //aspaNode = mSM->getRootSceneNode()->createChildSceneNode("aspa");
+
+  //Nodo tablero
+ /* Ogre::Entity* ent = mSM->createEntity("cube.mesh");
+  Ogre::SceneNode* tableroNode = aspaNode->createChildSceneNode("tablero");
+  tableroNode->attachObject(ent);
+  tableroNode->scale(Vector3(10,1,0.2));*/
+
+  //Nodo cilindro
+  /*ent = mSM->createEntity("column.mesh");
+  Ogre::SceneNode* cilindroNode = aspaNode->createChildSceneNode("adorno"); 
+  cilindroNode->attachObject(ent);
+  cilindroNode->scale(1, 0.2, 1);
+  cilindroNode->translate(Vector3(450,-22,20));*/
+  
+  //------------------------APARTADO 2-----------------------------------
+
+  //aspasNode = mSM->getRootSceneNode()->createChildSceneNode("aspas");
+
+  //for (int i = 0; i < numAspas; i++)
+  //{
+
+	 // Ogre::SceneNode* aspaNodeAux = aspasNode->createChildSceneNode("aspa_"+std::to_string(i));
+	 // 
+	 // //tablero
+	 // Ogre::Entity* ent = mSM->createEntity("cube.mesh");
+	 // Ogre::SceneNode* tableroNode = aspaNodeAux->createChildSceneNode("tablero_"+std::to_string(i));
+	 // tableroNode->attachObject(ent);
+	 // tableroNode->scale(Vector3(10, 1, 0.2));
+	
+	 // //cilindro
+	 // ent = mSM->createEntity("column.mesh");
+	 // Ogre::SceneNode* cilindroNode = aspaNodeAux->createChildSceneNode("adorno_"+std::to_string(i));
+	 // cilindroNode->attachObject(ent);
+	 // cilindroNode->scale(1, 0.2, 1);
+	 // cilindroNode->setPosition(Vector3(450, -22, 20));
+	 //
+	 // aspaNodeAux->roll(Degree((360/numAspas) * i)); //Rotamos el aspa
+
+
+	 // //Rotamos y movemos los cilindros para que esten en vertical y bien colocados en cada tablero
+	 // cilindroNode->roll(-Degree((360 / numAspas) * i));
+	 // cilindroNode->translate(-1*(20 + Ogre::Math::Sin(Ogre::Degree(360 / numAspas * i))), 20 + Ogre::Math::Cos
+	 // (Ogre::Degree(360 / numAspas * i)), 0);
+		//  
+	 // cilindros.push_back(cilindroNode);
+
+  //}
+
+  //-----------------APARTADO 4----------------------
+
+  /*Aspa* aspa = new Aspa(mSM->getRootSceneNode()->createChildSceneNode("aspa"));
+  addInputListener(aspa);*/
+  //-------------------APARTADO 5---------------------------
+
+   aspasMolino = new AspasMolino(mSM->getRootSceneNode()->createChildSceneNode("aspas"));
+   addInputListener(aspasMolino);
+
+
 
   //------------------------------------------------------------------------
 

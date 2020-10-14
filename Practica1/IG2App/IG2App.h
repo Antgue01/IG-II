@@ -6,7 +6,8 @@
 #include <OgreSceneNode.h>
 #include <OgreTrays.h>
 #include <OgreCameraMan.h>
-
+#include <vector>
+#include "AspasMolino.h"
 
 class IG2App : public  OgreBites::IG2ApplicationContext, OgreBites::InputListener 
 {
@@ -25,8 +26,16 @@ protected:
   OgreBites::TrayManager* mTrayMgr = nullptr;    
   Ogre::SceneNode* mLightNode = nullptr;
   Ogre::SceneNode* mCamNode = nullptr;
-  Ogre::SceneNode* mSinbadNode = nullptr;
+  //Ogre::SceneNode* aspaNode = nullptr; //Apartado 1
+
+ // Ogre::SceneNode* aspasNode = nullptr; //Apartado 2
+
   OgreBites::CameraMan* mCamMgr = nullptr;
+
+  //int numAspas = 12;
+  //std::vector<Ogre::SceneNode*> cilindros;
+
+  AspasMolino* aspasMolino = nullptr;
  
 };
 
