@@ -3,7 +3,7 @@
 
 AspasMolino::AspasMolino(Ogre::SceneNode* node) {
     //La constructora pasa el nodo asociado al objeto
-    //creado, como parámetro
+    //creado, como parï¿½metro
 
     aspasNode = node;
     Ogre::SceneManager* mSM = aspasNode->getCreator();
@@ -20,10 +20,10 @@ AspasMolino::AspasMolino(Ogre::SceneNode* node) {
 	  //tableroNode->scale(Vector3(10, 1, 0.2));
 
 	  ////cilindro
-	  //ent = mSM->createEntity("column.mesh");
+	  //ent = mSM->createEntity("Barrel.mesh");
 	  //Ogre::SceneNode* cilindroNode = aspaNodeAux->createChildSceneNode("adorno_"+std::to_string(i));
 	  //cilindroNode->attachObject(ent);
-	  //cilindroNode->scale(1, 0.2, 1);
+	  //cilindroNode->scale(5, 10, 5);
 	  //cilindroNode->setPosition(Vector3(450, -22, 20));
 	 
 	  //aspaNodeAux->roll(Degree((360/numAspas) * i)); //Rotamos el aspa

@@ -121,10 +121,10 @@ void IG2App::setupScene(void)
   tableroNode->scale(Vector3(10,1,0.2));*/
 
   //Nodo cilindro
-  /*ent = mSM->createEntity("column.mesh");
+  /*ent = mSM->createEntity("Barrel.mesh");
   Ogre::SceneNode* cilindroNode = aspaNode->createChildSceneNode("adorno"); 
   cilindroNode->attachObject(ent);
-  cilindroNode->scale(1, 0.2, 1);
+  cilindroNode->scale(5, 10, 5);
   cilindroNode->translate(Vector3(450,-22,20));*/
   
   //------------------------APARTADO 2-----------------------------------
@@ -143,10 +143,10 @@ void IG2App::setupScene(void)
 	 // tableroNode->scale(Vector3(10, 1, 0.2));
 	
 	 // //cilindro
-	 // ent = mSM->createEntity("column.mesh");
+	 // ent = mSM->createEntity("Barrel.mesh");
 	 // Ogre::SceneNode* cilindroNode = aspaNodeAux->createChildSceneNode("adorno_"+std::to_string(i));
 	 // cilindroNode->attachObject(ent);
-	 // cilindroNode->scale(1, 0.2, 1);
+	 // cilindroNode->scale(5, 10, 5);
 	 // cilindroNode->setPosition(Vector3(450, -22, 20));
 	 //
 	 // aspaNodeAux->roll(Degree((360/numAspas) * i)); //Rotamos el aspa

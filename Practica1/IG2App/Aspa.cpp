@@ -3,7 +3,7 @@
 
 Aspa::Aspa(Ogre::SceneNode* node, int i) {
 	//La constructora pasa el nodo asociado al objeto
-	//creado, como parámetro
+	//creado, como parï¿½metro
 
 	aspaNode = node;
 	Ogre::SceneManager* mSM = aspaNode->getCreator();
@@ -15,10 +15,11 @@ Aspa::Aspa(Ogre::SceneNode* node, int i) {
     tableroNode->scale(Vector3(10,1,0.2));
 
     //cilindro
-    ent = mSM->createEntity("column.mesh");
+    ent = mSM->createEntity("Barrel.mesh");
+    
     cilindroNode = aspaNode->createChildSceneNode("adorno_"+std::to_string(i));
     cilindroNode->attachObject(ent);
-    cilindroNode->scale(1, 0.2, 1);
+    cilindroNode->scale(5, 10, 5);
     cilindroNode->translate(Vector3(450,-22,20));
 }
 
