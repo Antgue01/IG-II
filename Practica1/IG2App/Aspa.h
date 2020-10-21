@@ -10,7 +10,7 @@ class Aspa : public OgreBites::InputListener {
 public:
 	Aspa(Ogre::SceneNode* node,int i); 
 	~Aspa() { aspaNode->removeAndDestroyAllChildren();}
-	// Métodos de InputListener que pueden redefinirse
+	// Mï¿½todos de InputListener que pueden redefinirse
 
 	virtual void frameRendered(const Ogre::FrameEvent& evt) { }
 	virtual bool keyPressed(const OgreBites::KeyboardEvent& evt);
@@ -20,6 +20,7 @@ public:
 	virtual bool mouseMoved(const OgreBites::MouseMotionEvent& evt){ return true; }
 	virtual bool mouseWheelRolled(const OgreBites::MouseWheelEvent& evt){ return true; }
 	inline SceneNode* getCilindroNode() { return cilindroNode; }
+	inline SceneNode* getTableroNode() { return tableroNode; }
 
 
 protected:

@@ -10,9 +10,9 @@ using namespace Ogre;
 
 class AspasMolino : public OgreBites::InputListener {
 public:
-	AspasMolino(Ogre::SceneNode* node);
+	AspasMolino(Ogre::SceneNode* node,int num);
 	~AspasMolino();
-	// Métodos de InputListener que pueden redefinirse
+	// Mï¿½todos de InputListener que pueden redefinirse
 
 	virtual void frameRendered(const Ogre::FrameEvent& evt) { }
 	virtual bool keyPressed(const OgreBites::KeyboardEvent& evt) override;
@@ -25,7 +25,7 @@ public:
 protected:
 
 	SceneNode* aspasNode = nullptr;
-	int numAspas = 12;
+	int numAspas;
 	Ogre::SceneManager* mSM = nullptr;
 	/*std::vector<Ogre::SceneNode*> cilindros;*/
 	Aspa** arrayAspas;

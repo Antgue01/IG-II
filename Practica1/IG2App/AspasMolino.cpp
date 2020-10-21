@@ -1,7 +1,7 @@
 #include "AspasMolino.h"
 #include <SDL_keycode.h>
 
-AspasMolino::AspasMolino(Ogre::SceneNode* node) {
+AspasMolino::AspasMolino(Ogre::SceneNode* node,int num):numAspas(num) {
     //La constructora pasa el nodo asociado al objeto
     //creado, como par�metro
 
@@ -43,7 +43,10 @@ AspasMolino::AspasMolino(Ogre::SceneNode* node) {
 	{
 		SceneNode* aspasNodeAux = aspasNode->createChildSceneNode("aspa_" + std::to_string(i));
 		arrayAspas[i] = new Aspa(aspasNodeAux,i);
-
+		SceneNode* tablero = arrayAspas[i]->getTableroNode();
+		
+			tablero->scale(Vector3(.5));
+			tablero->translate(250,00, 0);
 		aspasNodeAux->roll(Degree((360 / numAspas) * i)); //Rotamos cada aspa 
 
 		SceneNode* cilindroNode = arrayAspas[i]->getCilindroNode();

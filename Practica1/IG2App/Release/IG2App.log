@@ -1,11 +1,4 @@
-﻿  AspasMolino.cpp
-D:\Uni\3º V\IG II\IG-II\Practica1\OGREsdk\include\OGRE\OgreHardwareBuffer.h(180,58): warning C4251: 'Ogre::HardwareBuffer::mShadowBuffer': class 'std::unique_ptr<Ogre::HardwareBuffer,std::default_delete<Ogre::HardwareBuffer>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Ogre::HardwareBuffer'
-D:\Uni\3º V\IG II\IG-II\Practica1\OGREsdk\include\OGRE\OgreHardwareBuffer.h(180): message : vea la declaración de 'std::unique_ptr<Ogre::HardwareBuffer,std::default_delete<Ogre::HardwareBuffer>>'
-D:\Uni\3º V\IG II\IG-II\Practica1\IG2App\AspasMolino.cpp(47,46): warning C4244: 'argumento': conversión de 'int' a 'Ogre::Real'; posible pérdida de datos
-D:\Uni\3º V\IG II\IG-II\Practica1\IG2App\AspasMolino.cpp(51,47): warning C4244: 'argumento': conversión de 'int' a 'Ogre::Real'; posible pérdida de datos
-D:\Uni\3º V\IG II\IG-II\Practica1\IG2App\AspasMolino.cpp(52,80): warning C4244: 'argumento': conversión de 'int' a 'Ogre::Real'; posible pérdida de datos
-D:\Uni\3º V\IG II\IG-II\Practica1\IG2App\AspasMolino.cpp(53,35): warning C4244: 'argumento': conversión de 'int' a 'Ogre::Real'; posible pérdida de datos
-  IG2App.cpp
+﻿  IG2App.cpp
 D:\Uni\3º V\IG II\IG-II\Practica1\OGREsdk\include\OGRE\RTShaderSystem\OgreShaderProgramManager.h(208,33): warning C4251: 'Ogre::RTShader::ProgramManager::mCpuProgramsList': class 'std::set<Ogre::RTShader::Program *,std::less<Ogre::RTShader::Program *>,std::allocator<Ogre::RTShader::Program *>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Ogre::RTShader::ProgramManager'
 D:\Uni\3º V\IG II\IG-II\Practica1\OGREsdk\include\OGRE\RTShaderSystem\OgreShaderProgramManager.h(105): message : vea la declaración de 'std::set<Ogre::RTShader::Program *,std::less<Ogre::RTShader::Program *>,std::allocator<Ogre::RTShader::Program *>>'
 D:\Uni\3º V\IG II\IG-II\Practica1\OGREsdk\include\OGRE\RTShaderSystem\OgreShaderProgramManager.h(210,40): warning C4251: 'Ogre::RTShader::ProgramManager::mProgramWritersMap': class 'std::map<Ogre::String,Ogre::RTShader::ProgramWriter *,std::less<Ogre::String>,std::allocator<std::pair<const Ogre::String,Ogre::RTShader::ProgramWriter *>>>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Ogre::RTShader::ProgramManager'
@@ -485,7 +478,7 @@ D:\Uni\3º V\IG II\IG-II\Practica1\OGREsdk\include\OGRE\Bites\OgreTrays.h(189): 
 D:\Uni\3º V\IG II\IG-II\Practica1\IG2App\IG2App.cpp(7,10): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
 D:\Uni\3º V\IG II\IG-II\Practica1\IG2App\IG2App.cpp(90,58): warning C4305: 'argumento': truncamiento de 'double' a 'float'
   Generando código
-  0 of 631 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  2 of 632 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada

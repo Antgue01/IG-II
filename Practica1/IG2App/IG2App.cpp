@@ -167,7 +167,7 @@ void IG2App::setupScene(void)
   addInputListener(aspa);*/
   //-------------------APARTADO 5---------------------------
 
-   aspasMolino = new AspasMolino(mSM->getRootSceneNode()->createChildSceneNode("aspas"));
+   aspasMolino = new AspasMolino(mSM->getRootSceneNode()->createChildSceneNode("aspas"),5);
    addInputListener(aspasMolino);
 
 
