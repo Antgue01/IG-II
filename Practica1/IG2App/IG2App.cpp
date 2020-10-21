@@ -141,6 +141,8 @@ void IG2App::setupScene(void)
 	 // Ogre::SceneNode* tableroNode = aspaNodeAux->createChildSceneNode("tablero_"+std::to_string(i));
 	 // tableroNode->attachObject(ent);
 	 // tableroNode->scale(Vector3(10, 1, 0.2));
+	//tableroNode->scale(Vector3(.5));
+	//tableroNode->translate(250, 00, 0);
 	
 	 // //cilindro
 	 // ent = mSM->createEntity("Barrel.mesh");

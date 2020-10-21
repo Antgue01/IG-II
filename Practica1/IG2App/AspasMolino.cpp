@@ -16,6 +16,8 @@ AspasMolino::AspasMolino(Ogre::SceneNode* node,int num):numAspas(num) {
 	  ////tablero
 	  //Ogre::Entity* ent = mSM->createEntity("cube.mesh");
 	  //Ogre::SceneNode* tableroNode = aspaNodeAux->createChildSceneNode("tablero_"+std::to_string(i));
+		//tableroNode->scale(Vector3(.5));
+		//tableroNode->translate(250, 00, 0);
 	  //tableroNode->attachObject(ent);
 	  //tableroNode->scale(Vector3(10, 1, 0.2));
 
