@@ -3,6 +3,9 @@
 Molino::Molino(Ogre::SceneNode* node)	{
 	mNode = node;
 	Ogre::SceneManager* mSM = mNode->getCreator();
+	//nodo ficticio
+	//aspasnodeparent = mNode->createChildSceneNode("nodeparent");
+	//aspas = new AspasMolino(aspasnodeparent->createChildSceneNode("aspas"),6);
 	aspas = new AspasMolino(mNode->createChildSceneNode("aspas"),6);
 	cilindro = mNode->createChildSceneNode("cilindro");
 	esfera = mNode->createChildSceneNode("esfera");
@@ -27,6 +30,15 @@ bool Molino::keyPressed(const OgreBites::KeyboardEvent& evt)
 	}
 	else if (evt.keysym.sym == SDLK_c) {
 		aspas->getCentralCylinderNode()->translate(Vector3(0, 0, -5));
+	}
+	else if (evt.keysym.sym == SDLK_h) {
+		//nodo ficticio
+		//aspasnodeparent->yaw(Degree(5));
+
+		//truco
+		aspasnode->translate(-80, 0, 0,Ogre::Node::TS_LOCAL);
+		aspasnode->yaw(Degree(5));
+		aspasnode->translate(80, 0, 0, Ogre::Node::TS_LOCAL);
 	}
 	return false;
 }

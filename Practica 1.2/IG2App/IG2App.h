@@ -26,17 +26,21 @@ protected:
   OgreBites::TrayManager* mTrayMgr = nullptr;    
   Ogre::SceneNode* mLightNode = nullptr;
   Ogre::SceneNode* mCamNode = nullptr;
-  //Ogre::SceneNode* aspaNode = nullptr; //Apartado 1
 
- // Ogre::SceneNode* aspasNode = nullptr; //Apartado 2
 
   OgreBites::CameraMan* mCamMgr = nullptr;
 
-  //int numAspas = 12;
-  //std::vector<Ogre::SceneNode*> cilindros;
 
-  AspasMolino* aspasMolino = nullptr;
- 
+  SceneNode* Clock = nullptr;
+  SceneNode* padreEsferas = nullptr;
+  SceneNode* segundero = nullptr;
+  SceneNode* minutero = nullptr;
+  SceneNode* horas = nullptr;
+  SceneNode* tierra = nullptr;
+  SceneNode* sol = nullptr;
+  SceneNode* luna = nullptr;
+  std::vector<SceneNode*> spheres;
+  
 };
 
 #endif
