@@ -16,9 +16,11 @@ bool IG2App::keyPressed(const OgreBites::KeyboardEvent& evt)
 		getRoot()->queueEndRendering();
 	}
 	else if (evt.keysym.sym == SDLK_h) {
-		 segundero->translate(0, -100, 0, Ogre::Node::TS_LOCAL);
+
+		//-----------------------Apartado 13----------------------------
+		 /*segundero->translate(0, -100, 0, Ogre::Node::TS_LOCAL);
 		 segundero->roll(Ogre::Degree(-5));
-		 segundero->translate(0, 100, 0, Ogre::Node::TS_LOCAL);
+		 segundero->translate(0, 100, 0, Ogre::Node::TS_LOCAL);*/
 	}
 	else if (evt.keysym.sym == SDLK_j) {
 		//-------------Apartado 14 ----------------------------
@@ -27,12 +29,14 @@ bool IG2App::keyPressed(const OgreBites::KeyboardEvent& evt)
 		//tierra->translate(200, 0, 0, Ogre::Node::TS_LOCAL);
 
 		//-------------Apartado 15-------------------------
-		/*tierra->translate(-200, 0, 0, Ogre::Node::TS_LOCAL);
+
+		/*luna->translate(-300, 0, 0, Ogre::Node::TS_LOCAL);
+		luna->yaw(Degree(-10));
+		luna->translate(300, 0, 0, Ogre::Node::TS_LOCAL);
+
+		tierra->translate(-200, 0, 0, Ogre::Node::TS_LOCAL);
 		tierra->yaw(Degree(5));
-		tierra->translate(200, 0, 0, Ogre::Node::TS_LOCAL);
-		luna->translate(-300, 0, 0, Ogre::Node::TS_LOCAL);
-		luna->yaw(Degree(-5));
-		luna->translate(300, 0, 0, Ogre::Node::TS_LOCAL);*/
+		tierra->translate(200, 0, 0, Ogre::Node::TS_LOCAL);*/
 
 	}
 
@@ -115,11 +119,11 @@ void IG2App::setupScene(void)
 
 
   //-------------Apartado 9 ----------------------------
-	//Molino* m = new Molino(mSM->getRootSceneNode()->createChildSceneNode("molino"));
-	//addInputListener(m);
+	Molino* m = new Molino(mSM->getRootSceneNode()->createChildSceneNode("molino"));
+	addInputListener(m);
 
   //------------- Apartado 12 ------------------------
-	Clock = mSM->getRootSceneNode()->createChildSceneNode("Clock");
+	/*Clock = mSM->getRootSceneNode()->createChildSceneNode("Clock");
 	int radious = 400;
 	Ogre::Entity* ent = nullptr;
 	padreEsferas = Clock->createChildSceneNode("padreEsferas");
@@ -152,7 +156,7 @@ void IG2App::setupScene(void)
 	horas->attachObject(ent);
 
 	segundero->roll(Ogre::Degree(115),Ogre::Node::TS_PARENT);
-	segundero->translate(Vector3(-90, 60, 0), Ogre::Node::TS_PARENT);
+	segundero->translate(Vector3(-90, 60, 0), Ogre::Node::TS_PARENT);*/
 
 	//----------------Apartado 14 ------------------------------
    // sol = mSM->getRootSceneNode()->createChildSceneNode("Sol");
@@ -163,6 +167,7 @@ void IG2App::setupScene(void)
    // tierra->attachObject(ent);
    // tierra->scale(Vector3(.65));
    // tierra->translate(200, 0, 0);
+
 	//----------------Apartado 15----------------------------
 	/*sol = mSM->getRootSceneNode()->createChildSceneNode("Sol");
 	Ogre::Entity* ent = mSM->createEntity("sphere.mesh");
@@ -171,12 +176,14 @@ void IG2App::setupScene(void)
 	tierra = mSM->getRootSceneNode()->createChildSceneNode("Tierra");
 	tierra->attachObject(ent);
 	ent = mSM->createEntity("sphere.mesh");
-	luna = mSM->getRootSceneNode()->createChildSceneNode("Luna");
+	luna = tierra->createChildSceneNode("Luna");
 	luna->attachObject(ent);
+
 	tierra->scale(Vector3(.65));
 	tierra->translate(200, 0, 0);
+
 	luna->scale(Vector3(.25));
-	luna->translate(300, 0, 0);*/
+	luna->translate(200, 0, 0);*/
 	//------------------------------------------------------------------------
 
 	mCamMgr = new OgreBites::CameraMan(mCamNode);
