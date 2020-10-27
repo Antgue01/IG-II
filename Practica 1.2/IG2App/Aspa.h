@@ -8,7 +8,7 @@ using namespace Ogre;
 
 class Aspa : public OgreBites::InputListener {
 public:
-	Aspa(Ogre::SceneNode* node,int i); 
+	Aspa(Ogre::SceneNode* node,int i,std::string nombre="a"); 
 	~Aspa() { aspaNode->removeAndDestroyAllChildren();}
 	// M�todos de InputListener que pueden redefinirse
 

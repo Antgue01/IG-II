@@ -17,7 +17,7 @@ Adaptado de OgreApplicationContext.cpp  en OGREbites\src
 #include <OgreBitesConfigDialog.h>
 #include <OgreWindowEventUtilities.h>
 
-//#include <OgreConfigPaths.h>    // IG2: lo quito xq las rutas son absolutas y deben ser relativas al directorio de la solución
+//#include <OgreConfigPaths.h>    // IG2: lo quito xq las rutas son absolutas y deben ser relativas al directorio de la soluciï¿½n
 //#include <OgreOverlaySystem.h>  // IG2: lo he incluido en el .h para evitar declaraciones adelantadas
 //#include <SDL.h>				  // IG2: lo he incluido en el .h para evitar declaraciones adelantadas
 #include <SDL_video.h>
@@ -74,9 +74,9 @@ namespace OgreBites {
 			OGRE_EXCEPT(Ogre::Exception::ERR_FILE_NOT_FOUND, "plugins.cfg",	"IG2ApplicationContext::createRoot");
 		}
 
-		mSolutionPath = pluginsPath;    // IG2: añadido para definir directorios relativos al de la solución 
+		mSolutionPath = pluginsPath;    // IG2: aï¿½adido para definir directorios relativos al de la soluciï¿½n 
 		mSolutionPath.erase(mSolutionPath.find_last_of("\\") + 1, mSolutionPath.size() - 1);
-		mFSLayer->setHomePath(mSolutionPath);   // IG2: para los archivos de configuración ogre. (en el bin de la solubión)
+		mFSLayer->setHomePath(mSolutionPath);   // IG2: para los archivos de configuraciï¿½n ogre. (en el bin de la solubiï¿½n)
 		mSolutionPath.erase(mSolutionPath.find_last_of("\\") + 1, mSolutionPath.size() - 1);   // IG2: Quito /bin
 
 		mRoot = new Ogre::Root(pluginsPath, mFSLayer->getWritablePath("ogre.cfg"), mFSLayer->getWritablePath("ogre.log"));
@@ -110,7 +110,7 @@ namespace OgreBites {
 	{
 		mRoot->initialise(false);
 		createWindow(mAppName);
-		setWindowGrab(false);   // IG2: ratón libre
+		setWindowGrab(false);   // IG2: ratï¿½n libre
 
 		locateResources();
 		initialiseRTShaderSystem();

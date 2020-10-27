@@ -5,7 +5,7 @@
 #include <SDL_keycode.h>
 #include <OgreMeshManager.h>
 #include "Molino.h";
-
+#include "Avion.h"
 
 using namespace Ogre;
 
@@ -119,8 +119,9 @@ void IG2App::setupScene(void)
 
 
   //-------------Apartado 9 ----------------------------
-	Molino* m = new Molino(mSM->getRootSceneNode()->createChildSceneNode("molino"));
-	addInputListener(m);
+	
+	//Molino* m = new Molino(mSM->getRootSceneNode()->createChildSceneNode("molino"));
+	//addInputListener(m);
 
   //------------- Apartado 12 ------------------------
 	/*Clock = mSM->getRootSceneNode()->createChildSceneNode("Clock");
@@ -186,7 +187,11 @@ void IG2App::setupScene(void)
 	luna->translate(200, 0, 0);*/
 	//------------------------------------------------------------------------
 
+	//-------------Apartado 16 ---------------------------
+	Avion* a = new Avion(mSM->getRootSceneNode()->createChildSceneNode("avion"));
+	addInputListener(a);
 	mCamMgr = new OgreBites::CameraMan(mCamNode);
+
 	addInputListener(mCamMgr);
 	mCamMgr->setStyle(OgreBites::CS_ORBIT);
 

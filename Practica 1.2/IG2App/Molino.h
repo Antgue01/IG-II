@@ -7,7 +7,7 @@ class Molino :
 {
 public:
 	Molino(Ogre::SceneNode* node);
-	~Molino() { mNode->removeAndDestroyAllChildren(); }
+	~Molino() { mNode->removeAndDestroyAllChildren(); delete aspas; }
 	// M�todos de InputListener que pueden redefinirse
 
 	virtual void frameRendered(const Ogre::FrameEvent& evt) { }

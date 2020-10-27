@@ -1,7 +1,7 @@
 #include "AspasMolino.h"
 #include <SDL_keycode.h>
 
-AspasMolino::AspasMolino(Ogre::SceneNode* node, int num) :numAspas(num) {
+AspasMolino::AspasMolino(Ogre::SceneNode* node, int num, std::string nombre) :numAspas(num) {
 	//La constructora pasa el nodo asociado al objeto
 	//creado, como par�metro
 
@@ -39,16 +39,16 @@ AspasMolino::AspasMolino(Ogre::SceneNode* node, int num) :numAspas(num) {
 	// }
 
 	arrayAspas = new Aspa * [numAspas];
-	cilindroCentral = aspasNode->createChildSceneNode("cilindrocentral");
-	Ogre::Entity* ent = mSM->createEntity("Barrel.mesh");
+	cilindroCentral = aspasNode->createChildSceneNode("cilindrocentral" + (nombre));
+	Ogre::Entity * ent = mSM->createEntity("Barrel.mesh");
 	cilindroCentral->attachObject(ent);
 	cilindroCentral->scale(Vector3(13));
 	cilindroCentral->pitch(Ogre::Degree(90));
 	//cilindroCentral->translate(Vector3())
 	for (int i = 0; i < numAspas; i++)
 	{
-		SceneNode* aspasNodeAux = aspasNode->createChildSceneNode("aspa_" + std::to_string(i));
-		arrayAspas[i] = new Aspa(aspasNodeAux, i);
+		SceneNode* aspasNodeAux = aspasNode->createChildSceneNode("aspa_" + std::to_string(i) + (nombre));
+		arrayAspas[i] = new Aspa(aspasNodeAux, i,nombre);
 
 		aspasNodeAux->roll(Degree((360 / numAspas) * i)); //Rotamos cada aspa 
 		SceneNode* tablero = arrayAspas[i]->getTableroNode();

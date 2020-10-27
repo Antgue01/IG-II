@@ -10,7 +10,7 @@ using namespace Ogre;
 
 class AspasMolino : public OgreBites::InputListener {
 public:
-	AspasMolino(Ogre::SceneNode* node,int num);
+	AspasMolino(Ogre::SceneNode* node, int num, std::string nombre = "0");
 	~AspasMolino();
 	// M�todos de InputListener que pueden redefinirse
 
