@@ -120,8 +120,8 @@ void IG2App::setupScene(void)
 
   //-------------Apartado 9 ----------------------------
 	
-	//Molino* m = new Molino(mSM->getRootSceneNode()->createChildSceneNode("molino"));
-	//addInputListener(m);
+	Molino* m = new Molino(mSM->getRootSceneNode()->createChildSceneNode("molino"));
+	addInputListener(m);
 
   //------------- Apartado 12 ------------------------
 	/*Clock = mSM->getRootSceneNode()->createChildSceneNode("Clock");
@@ -188,13 +188,29 @@ void IG2App::setupScene(void)
 	//------------------------------------------------------------------------
 
 	//-------------Apartado 16 ---------------------------
-	Avion* a = new Avion(mSM->getRootSceneNode()->createChildSceneNode("avion"));
-	addInputListener(a);
-	mCamMgr = new OgreBites::CameraMan(mCamNode);
+	/*Avion* a = new Avion(mSM->getRootSceneNode()->createChildSceneNode("avion"));
+	addInputListener(a);*/
 
+
+	//------------------------ Apartado 18 -------------------------------
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+	mCamMgr = new OgreBites::CameraMan(mCamNode);
 	addInputListener(mCamMgr);
 	mCamMgr->setStyle(OgreBites::CS_ORBIT);
-
 	//mCamMgr->setTarget(mSinbadNode);  
 	//mCamMgr->setYawPitchDist(Radian(0), Degree(30), 100);
 

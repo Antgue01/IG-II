@@ -1,11 +1,12 @@
-
-#include "AspasMolino.h"
 #pragma once
-class Avion:public OgreBites::InputListener
+#include "AspasMolino.h"
+#include "EntidadIG.h"
+
+class Avion : public EntidadIG
 {
 public:
 	Avion(Ogre::SceneNode* node); 
-	~Avion() { mNode->removeAndDestroyAllChildren(); delete aspas1; delete aspas2; }
+	virtual ~Avion() { EntidadIG::~EntidadIG(); delete aspas1; delete aspas2; }
 	// M�todos de InputListener que pueden redefinirse
 
 	virtual void frameRendered(const Ogre::FrameEvent& evt) { }
@@ -16,7 +17,6 @@ public:
 	virtual bool mouseMoved(const OgreBites::MouseMotionEvent& evt) { return true; }
 	virtual bool mouseWheelRolled(const OgreBites::MouseWheelEvent& evt) { return true; }
 protected:
-	Ogre::SceneNode* mNode;
 	Ogre::SceneNode* cuerpoNode;
 	Ogre::SceneNode* AlaINode;
 	Ogre::SceneNode* AlaDNode;

@@ -1,8 +1,10 @@
 #include "Molino.h"
 #include <SDL_keycode.h>
-Molino::Molino(Ogre::SceneNode* node)	{
-	mNode = node;
-	Ogre::SceneManager* mSM = mNode->getCreator();
+
+Molino::Molino(Ogre::SceneNode* node) : EntidadIG(node)
+{
+	EntidadIG::addListener(this);
+
 	//nodo ficticio
 	/*aspasnodeparent = mNode->createChildSceneNode("nodeparent");
 	aspas = new AspasMolino(aspasnodeparent->createChildSceneNode("aspas"),6);*/
@@ -19,6 +21,14 @@ Molino::Molino(Ogre::SceneNode* node)	{
 	esfera->scale(Vector3(.75));
 	cilindro->scale(Vector3(30));
 	cilindro->translate(Vector3(0, -100, 0));
+
+}
+
+void Molino::frameRendered(const Ogre::FrameEvent& evt)
+{
+	Ogre::Real time = evt.timeSinceLastFrame;
+
+	aspas->roll(time*15);
 
 }
 
@@ -41,4 +51,9 @@ bool Molino::keyPressed(const OgreBites::KeyboardEvent& evt)
 		aspasnode->translate(0, 0, 80, Ogre::Node::TS_LOCAL);
 	}
 	return false;
+}
+
+void Molino::receiveEvent(EntidadIG* entidad)
+{
+	
 }

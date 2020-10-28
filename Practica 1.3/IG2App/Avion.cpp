@@ -1,12 +1,8 @@
 #include "Avion.h"
 #include <SDL_keycode.h>
 
-Avion::Avion(Ogre::SceneNode* node)
+Avion::Avion(Ogre::SceneNode* node) : EntidadIG(node)
 {
-	mNode = node;
-	Ogre::SceneManager* mSM = mNode->getCreator();
-
-
 	Ogre::Entity* ent = mSM->createEntity("sphere.mesh");
 	cuerpoNode = mNode->createChildSceneNode("cuerpoNode");
 	cuerpoNode->attachObject(ent);

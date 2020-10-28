@@ -40,6 +40,7 @@ protected:
   SceneNode* sol = nullptr;
   SceneNode* luna = nullptr;
   std::vector<SceneNode*> spheres;
+  SceneNode* planoNode = nullptr;
   
 };
 

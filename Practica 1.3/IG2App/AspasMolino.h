@@ -5,32 +5,26 @@
 #include <OgreEntity.h>
 #include <vector>
 #include "Aspa.h"
-
+#include "EntidadIG.h"
 using namespace Ogre;
 
-class AspasMolino : public OgreBites::InputListener {
+class AspasMolino : public EntidadIG {
 public:
 	AspasMolino(Ogre::SceneNode* node, int num, std::string nombre = "0");
-	~AspasMolino();
+	virtual ~AspasMolino();
 	// M�todos de InputListener que pueden redefinirse
 
-	virtual void frameRendered(const Ogre::FrameEvent& evt) { }
 	virtual bool keyPressed(const OgreBites::KeyboardEvent& evt) override;
-	virtual bool keyReleased(const OgreBites::KeyboardEvent& evt) { return true; }
-	virtual bool mousePressed(const OgreBites::MouseButtonEvent& evt) { return true; }
-	virtual bool mouseRelease(const OgreBites::MouseButtonEvent& evt) { return true; }
-	virtual bool mouseMoved(const OgreBites::MouseMotionEvent& evt) { return true; }
-	virtual bool mouseWheelRolled(const OgreBites::MouseWheelEvent& evt) { return true; }
+	
 	inline SceneNode* getCentralCylinderNode() { return cilindroCentral; }
-	inline SceneNode* getNode() { return aspasNode; }
-	void roll(int degrees);
+	inline SceneNode* getNode() { return mNode; }
+	void roll(float degrees);
 
 protected:
 
-	SceneNode* aspasNode = nullptr;
+	//aspasNode heredado de EntidadIG
 	SceneNode* cilindroCentral = nullptr;
 	int numAspas;
-	Ogre::SceneManager* mSM = nullptr;
 	/*std::vector<Ogre::SceneNode*> cilindros;*/
 	Aspa** arrayAspas;
 
