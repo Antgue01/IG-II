@@ -1,6 +1,6 @@
 #include "EntidadIG.h"
 
-// Inicialización del vector de listeners
+// Inicializaciï¿½n del vector de listeners
 std::vector<EntidadIG*> EntidadIG::appListeners = std::vector<EntidadIG*>(0, nullptr);
 
 EntidadIG::EntidadIG(Ogre::SceneNode* nodo) {

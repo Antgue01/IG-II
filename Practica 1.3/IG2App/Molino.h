@@ -27,5 +27,6 @@ protected:
 	Ogre::SceneNode* aspasnode;
 	Ogre::SceneNode* aspasnodeparent;
 	AspasMolino* aspas;
+	bool anim = true;
 };
 

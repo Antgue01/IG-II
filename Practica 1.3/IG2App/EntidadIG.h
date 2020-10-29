@@ -12,14 +12,14 @@ public:
 	EntidadIG(Ogre::SceneNode* node);
 	virtual ~EntidadIG();
 
-	//Vector estático de listeners
+	//Vector estï¿½tico de listeners
 	static std::vector<EntidadIG*> appListeners;
-	//Añadir entidad como listener al vector con push_back()
+	//Aï¿½adir entidad como listener al vector con push_back()
 	static void addListener(EntidadIG* entidad) { appListeners.push_back(entidad);};
 
 	void sendEvent(EntidadIG* entidad);
 	virtual void receiveEvent(EntidadIG* entidad) {};
-
+	Ogre::SceneNode* getNode() { return mNode; }
 protected:
 	Ogre::SceneNode* mNode;
 	Ogre::SceneManager* mSM;

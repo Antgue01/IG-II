@@ -8,7 +8,7 @@ Molino::Molino(Ogre::SceneNode* node) : EntidadIG(node)
 	//nodo ficticio
 	/*aspasnodeparent = mNode->createChildSceneNode("nodeparent");
 	aspas = new AspasMolino(aspasnodeparent->createChildSceneNode("aspas"),6);*/
-	aspas = new AspasMolino(mNode->createChildSceneNode("aspas"),6);
+	aspas = new AspasMolino(mNode->createChildSceneNode("aspas"), 6);
 	cilindro = mNode->createChildSceneNode("cilindro");
 	esfera = mNode->createChildSceneNode("esfera");
 	Ogre::Entity* ent = mSM->createEntity("Barrel.mesh");
@@ -26,9 +26,10 @@ Molino::Molino(Ogre::SceneNode* node) : EntidadIG(node)
 
 void Molino::frameRendered(const Ogre::FrameEvent& evt)
 {
-	Ogre::Real time = evt.timeSinceLastFrame;
 
-	aspas->roll(time*15);
+
+	Ogre::Real time = evt.timeSinceLastFrame;
+	aspas->roll(time * 15);
 
 }
 
@@ -36,7 +37,8 @@ bool Molino::keyPressed(const OgreBites::KeyboardEvent& evt)
 {
 	if (evt.keysym.sym == SDLK_g)
 	{
-		aspas->roll(5);
+		if (!anim)
+			aspas->roll(5);
 	}
 	else if (evt.keysym.sym == SDLK_c) {
 		aspas->getCentralCylinderNode()->translate(Vector3(0, 0, -5));
@@ -46,7 +48,7 @@ bool Molino::keyPressed(const OgreBites::KeyboardEvent& evt)
 		//aspasnodeparent->yaw(Degree(5));
 
 		//truco
-		aspasnode->translate(0, 0, -80,Ogre::Node::TS_LOCAL);
+		aspasnode->translate(0, 0, -80, Ogre::Node::TS_LOCAL);
 		aspasnode->yaw(Degree(5));
 		aspasnode->translate(0, 0, 80, Ogre::Node::TS_LOCAL);
 	}
@@ -55,5 +57,4 @@ bool Molino::keyPressed(const OgreBites::KeyboardEvent& evt)
 
 void Molino::receiveEvent(EntidadIG* entidad)
 {
-	
 }

@@ -4,8 +4,6 @@
 #include <OgreInput.h>
 #include <SDL_keycode.h>
 #include <OgreMeshManager.h>
-#include "Molino.h";
-#include "Avion.h"
 
 using namespace Ogre;
 
@@ -52,7 +50,10 @@ void IG2App::shutdown()
 	mRoot->destroySceneManager(mSM);
 	delete mTrayMgr;  mTrayMgr = nullptr;
 	delete mCamMgr; mCamMgr = nullptr;
-
+	if (m != nullptr)
+		delete m;
+	if (planoNode != nullptr)
+		delete planoNode;
 
 	// do not forget to call the base 
 	IG2ApplicationContext::shutdown();
@@ -110,7 +111,7 @@ void IG2App::setupScene(void)
 	//mLightNode = mCamNode->createChildSceneNode("nLuz");
 	mLightNode->attachObject(luz);
 
-	mLightNode->setDirection(Ogre::Vector3(0, 0, -1));  //vec3.normalise();
+	mLightNode->setDirection(Ogre::Vector3(0, -1, -1));  //vec3.normalise();
 	//lightNode->setPosition(0, 0, 1000);
 
 	//------------------------------------------------------------------------
@@ -120,8 +121,8 @@ void IG2App::setupScene(void)
 
   //-------------Apartado 9 ----------------------------
 	
-	Molino* m = new Molino(mSM->getRootSceneNode()->createChildSceneNode("molino"));
-	addInputListener(m);
+	//Molino* m = new Molino(mSM->getRootSceneNode()->createChildSceneNode("molino"));
+	//addInputListener(m);
 
   //------------- Apartado 12 ------------------------
 	/*Clock = mSM->getRootSceneNode()->createChildSceneNode("Clock");
@@ -194,8 +195,11 @@ void IG2App::setupScene(void)
 
 	//------------------------ Apartado 18 -------------------------------
 
-	
-
+	 m = new Molino(mSM->getRootSceneNode()->createChildSceneNode("molino"));
+	addInputListener(m);
+	m->getNode()->translate(-450, 0, -300);
+	planoNode = new Plano(mSM->getRootSceneNode()->createChildSceneNode("plano"));
+	planoNode->getNode()->translate(0, -200, 0);
 
 
 

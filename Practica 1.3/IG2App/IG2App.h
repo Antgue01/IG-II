@@ -7,7 +7,10 @@
 #include <OgreTrays.h>
 #include <OgreCameraMan.h>
 #include <vector>
+#include "Plano.h"
 #include "AspasMolino.h"
+#include "Molino.h"
+#include "Avion.h"
 
 class IG2App : public  OgreBites::IG2ApplicationContext, OgreBites::InputListener 
 {
@@ -40,7 +43,8 @@ protected:
   SceneNode* sol = nullptr;
   SceneNode* luna = nullptr;
   std::vector<SceneNode*> spheres;
-  SceneNode* planoNode = nullptr;
+  Plano* planoNode = nullptr;
+  Molino* m = nullptr;
   
 };
 
