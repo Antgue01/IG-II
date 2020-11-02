@@ -30,13 +30,13 @@ bool IG2App::keyPressed(const OgreBites::KeyboardEvent& evt)
 
 		//-------------Apartado 15-------------------------
 
-		/*luna->translate(-300, 0, 0, Ogre::Node::TS_LOCAL);
-		luna->yaw(Degree(-10));
-		luna->translate(300, 0, 0, Ogre::Node::TS_LOCAL);
+		/*luna->translate(-200, 0, 0, Ogre::Node::TS_LOCAL);
+		luna->yaw(Degree(10));
+		luna->translate(200, 0, 0, Ogre::Node::TS_LOCAL);
 
-		tierra->translate(-200, 0, 0, Ogre::Node::TS_LOCAL);
-		tierra->yaw(Degree(5));
-		tierra->translate(200, 0, 0, Ogre::Node::TS_LOCAL);*/
+		tierra->translate(-300, 0, 0, Ogre::Node::TS_LOCAL);
+		tierra->yaw(Degree(-5));
+		tierra->translate(300, 0, 0, Ogre::Node::TS_LOCAL);*/
 
 	}
 
@@ -160,14 +160,14 @@ void IG2App::setupScene(void)
 	segundero->translate(Vector3(-90, 60, 0), Ogre::Node::TS_PARENT);*/
 
 	//----------------Apartado 14 ------------------------------
-   // sol = mSM->getRootSceneNode()->createChildSceneNode("Sol");
-   // Ogre::Entity* ent = mSM->createEntity("sphere.mesh");
-   // sol->attachObject(ent);
-	  //ent = mSM->createEntity("sphere.mesh");
-   // tierra = mSM->getRootSceneNode()->createChildSceneNode("Tierra");
-   // tierra->attachObject(ent);
-   // tierra->scale(Vector3(.65));
-   // tierra->translate(200, 0, 0);
+   /* sol = mSM->getRootSceneNode()->createChildSceneNode("Sol");
+    Ogre::Entity* ent = mSM->createEntity("sphere.mesh");
+    sol->attachObject(ent);
+	  ent = mSM->createEntity("sphere.mesh");
+    tierra = mSM->getRootSceneNode()->createChildSceneNode("Tierra");
+    tierra->attachObject(ent);
+    tierra->scale(Vector3(.65));
+    tierra->translate(200, 0, 0);*/
 
 	//----------------Apartado 15----------------------------
 	/*sol = mSM->getRootSceneNode()->createChildSceneNode("Sol");
@@ -181,7 +181,7 @@ void IG2App::setupScene(void)
 	luna->attachObject(ent);
 
 	tierra->scale(Vector3(.65));
-	tierra->translate(200, 0, 0);
+	tierra->translate(300, 0, 0);
 
 	luna->scale(Vector3(.25));
 	luna->translate(200, 0, 0);*/
@@ -190,6 +190,8 @@ void IG2App::setupScene(void)
 	//-------------Apartado 16 ---------------------------
 	Avion* a = new Avion(mSM->getRootSceneNode()->createChildSceneNode("avion"));
 	addInputListener(a);
+
+
 	mCamMgr = new OgreBites::CameraMan(mCamNode);
 
 	addInputListener(mCamMgr);
