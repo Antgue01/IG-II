@@ -6,8 +6,8 @@
 class Plano : public EntidadIG 
 {
 public:
-	Plano(Ogre::SceneNode* node);
-	~Plano() { }
+	Plano(Ogre::SceneNode* node,int ancho,int largo,std::string name);
+	virtual ~Plano() { }
 
 protected:
 	

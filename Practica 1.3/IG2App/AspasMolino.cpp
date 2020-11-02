@@ -10,7 +10,7 @@ AspasMolino::AspasMolino(Ogre::SceneNode* node, int num, std::string nombre) : E
 	cilindroCentral->attachObject(ent);
 	cilindroCentral->scale(Vector3(13));
 	cilindroCentral->pitch(Ogre::Degree(90));
-	//cilindroCentral->translate(Vector3())
+	
 	for (int i = 0; i < numAspas; i++)
 	{
 		SceneNode* aspasNodeAux = mNode->createChildSceneNode("aspa_" + std::to_string(i) + (nombre));

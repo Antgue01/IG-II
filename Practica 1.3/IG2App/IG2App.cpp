@@ -50,10 +50,12 @@ void IG2App::shutdown()
 	mRoot->destroySceneManager(mSM);
 	delete mTrayMgr;  mTrayMgr = nullptr;
 	delete mCamMgr; mCamMgr = nullptr;
-	if (m != nullptr)
-		delete m;
-	if (planoNode != nullptr)
-		delete planoNode;
+
+	if (m != nullptr) delete m;		
+	if (avion != nullptr) delete avion;
+	if (planoSuelo != nullptr) delete planoSuelo;
+	if (planoMolino != nullptr) delete planoMolino;
+	if (planoSimbad != nullptr) delete planoSimbad;
 
 	// do not forget to call the base 
 	IG2ApplicationContext::shutdown();
@@ -195,17 +197,34 @@ void IG2App::setupScene(void)
 
 	//------------------------ Apartado 18 -------------------------------
 
-	 m = new Molino(mSM->getRootSceneNode()->createChildSceneNode("molino"));
+	/*plano = new Plano(mSM->getRootSceneNode()->createChildSceneNode("plano"));
+	plano->getNode()->translate(0, -200, 0);*/
+
+
+	//---------------------------Apartado 23-----------------------------------------
+
+	m = new Molino(mSM->getRootSceneNode()->createChildSceneNode("molino"));
+	m->getNode()->translate(450, 0, -300);
 	addInputListener(m);
-	m->getNode()->translate(-450, 0, -300);
-	planoNode = new Plano(mSM->getRootSceneNode()->createChildSceneNode("plano"));
-	planoNode->getNode()->translate(0, -200, 0);
 
+	planoMolino = new Plano(mSM->getRootSceneNode()->createChildSceneNode("planoMolino"),300,300,"planoSueloMolino");
+	planoMolino->getNode()->translate(380, -190, -240);
 
+	planoSuelo = new Plano(mSM->getRootSceneNode()->createChildSceneNode("plano"),1080,800,"planoSuelo");
+	planoSuelo->getNode()->translate(0, -200, 0);
 
+	avion = new Avion(mSM->getRootSceneNode()->createChildSceneNode("avion"));
+	avion->getNode()->translate(1000, 100, 0);
+	addInputListener(avion);
 
+	simbad = mSM->getRootSceneNode()->createChildSceneNode("simbad");
+	Ogre::Entity* e = mSM->createEntity("Sinbad.mesh");
+	simbad->attachObject(e);
+	simbad->scale(15, 15, 15);
+	simbad->translate(-450, -125, 300);
 
-
+	planoSimbad = new Plano(mSM->getRootSceneNode()->createChildSceneNode("planoSimbad"), 300, 300,"PlanoSueloSimbad");
+	planoSimbad->getNode()->translate(-380, -190, 240);
 
 
 

@@ -8,9 +8,9 @@ EntidadIG::EntidadIG(Ogre::SceneNode* nodo) {
 	mSM = mNode->getCreator();
 }
 
-EntidadIG::~EntidadIG() {
+ EntidadIG::~EntidadIG() {
 
-	mNode->removeAndDestroyAllChildren();
+	//mNode->removeAndDestroyAllChildren();
 }
 
 void EntidadIG::sendEvent(EntidadIG* entidad)
