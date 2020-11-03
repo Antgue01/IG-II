@@ -214,7 +214,8 @@ void IG2App::setupScene(void)
 	planoSuelo->getNode()->translate(0, -200, 0);
 
 	avion = new Avion(mSM->getRootSceneNode()->createChildSceneNode("avion"));
-	avion->getNode()->translate(1000, 100, 0);
+	avion->getNode()->scale(0.4, 0.4, 0.4);
+	avion->getNode()->translate(400, 200, 0);
 	addInputListener(avion);
 
 	simbad = mSM->getRootSceneNode()->createChildSceneNode("simbad");

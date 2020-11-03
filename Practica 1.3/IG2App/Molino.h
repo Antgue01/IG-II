@@ -12,7 +12,7 @@ public:
 	virtual ~Molino() { EntidadIG::~EntidadIG();  delete aspas; }
 	
 
-	virtual void frameRendered(const Ogre::FrameEvent& evt);
+	//virtual void frameRendered(const Ogre::FrameEvent& evt);
 	virtual bool keyPressed(const OgreBites::KeyboardEvent& evt);
 	
 	virtual void receiveEvent(EntidadIG* entidad);
@@ -23,6 +23,6 @@ protected:
 	Ogre::SceneNode* aspasnode;
 	Ogre::SceneNode* aspasnodeparent;
 	AspasMolino* aspas;
-	bool anim = true;
+	//bool anim = true;
 };
 
