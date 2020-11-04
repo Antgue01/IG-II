@@ -21,8 +21,8 @@ protected:
 	Ogre::SceneNode* mNode;
 	Ogre::SceneNode* esfera;
 	Ogre::SceneNode* cilindro;
-	Ogre::SceneNode* aspasnode;
 	Ogre::SceneNode* aspasnodeparent;
+	Ogre::SceneNode* aspasNode;
 	AspasMolino* aspas;
 };
 
