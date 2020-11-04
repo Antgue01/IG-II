@@ -18,7 +18,7 @@ bool IG2App::keyPressed(const OgreBites::KeyboardEvent& evt)
 	else if (evt.keysym.sym == SDLK_h) {
 
 		//-----------------------Apartado 13----------------------------
-		 /*segundero->translate(0, -100, 0, Ogre::Node::TS_LOCAL);
+		/* segundero->translate(0, -100, 0, Ogre::Node::TS_LOCAL);
 		 segundero->roll(Ogre::Degree(-5));
 		 segundero->translate(0, 100, 0, Ogre::Node::TS_LOCAL);*/
 	}
@@ -120,8 +120,8 @@ void IG2App::setupScene(void)
 
   //-------------Apartado 9 ----------------------------
 	
-	//Molino* m = new Molino(mSM->getRootSceneNode()->createChildSceneNode("molino"));
-	//addInputListener(m);
+	Molino* m = new Molino(mSM->getRootSceneNode()->createChildSceneNode("molino"));
+	addInputListener(m);
 
   //------------- Apartado 12 ------------------------
 	/*Clock = mSM->getRootSceneNode()->createChildSceneNode("Clock");
@@ -160,7 +160,7 @@ void IG2App::setupScene(void)
 	segundero->translate(Vector3(-90, 60, 0), Ogre::Node::TS_PARENT);*/
 
 	//----------------Apartado 14 ------------------------------
-   /* sol = mSM->getRootSceneNode()->createChildSceneNode("Sol");
+    /*sol = mSM->getRootSceneNode()->createChildSceneNode("Sol");
     Ogre::Entity* ent = mSM->createEntity("sphere.mesh");
     sol->attachObject(ent);
 	  ent = mSM->createEntity("sphere.mesh");
@@ -188,8 +188,8 @@ void IG2App::setupScene(void)
 	//------------------------------------------------------------------------
 
 	//-------------Apartado 16 ---------------------------
-	Avion* a = new Avion(mSM->getRootSceneNode()->createChildSceneNode("avion"));
-	addInputListener(a);
+	/*Avion* a = new Avion(mSM->getRootSceneNode()->createChildSceneNode("avion"));
+	addInputListener(a);*/
 
 
 	mCamMgr = new OgreBites::CameraMan(mCamNode);

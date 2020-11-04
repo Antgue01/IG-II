@@ -207,11 +207,6 @@ void IG2App::setupScene(void)
 	m->getNode()->translate(450, 0, -300);
 	addInputListener(m);
 
-	planoMolino = new Plano(mSM->getRootSceneNode()->createChildSceneNode("planoMolino"),300,300,"planoSueloMolino");
-	planoMolino->getNode()->translate(380, -190, -240);
-
-	planoSuelo = new Plano(mSM->getRootSceneNode()->createChildSceneNode("plano"),1080,800,"planoSuelo");
-	planoSuelo->getNode()->translate(0, -200, 0);
 
 	avion = new Avion(mSM->getRootSceneNode()->createChildSceneNode("avion"));
 	avion->getNode()->scale(0.4, 0.4, 0.4);
@@ -224,10 +219,14 @@ void IG2App::setupScene(void)
 	simbad->scale(15, 15, 15);
 	simbad->translate(-450, -125, 300);
 
-	planoSimbad = new Plano(mSM->getRootSceneNode()->createChildSceneNode("planoSimbad"), 300, 300,"PlanoSueloSimbad");
+	planoMolino = new Plano(mSM->getRootSceneNode()->createChildSceneNode("planoMolino"),300,300,"planoSueloMolino","naranja");
+	planoMolino->getNode()->translate(380, -190, -240);
+
+	planoSuelo = new Plano(mSM->getRootSceneNode()->createChildSceneNode("plano"),1080,800,"planoSuelo","agua");
+	planoSuelo->getNode()->translate(0, -200, 0);
+
+	planoSimbad = new Plano(mSM->getRootSceneNode()->createChildSceneNode("planoSimbad"), 300, 300,"PlanoSueloSimbad","rojo");
 	planoSimbad->getNode()->translate(-380, -190, 240);
-
-
 
 
 

@@ -1,0 +1,10 @@
+material naranja 
+{
+    technique 
+    {
+       pass 
+       {
+           diffuse 1 0.5450 0
+        }
+    }
+}

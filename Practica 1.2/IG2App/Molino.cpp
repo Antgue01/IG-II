@@ -6,19 +6,22 @@ Molino::Molino(Ogre::SceneNode* node)	{
 	//nodo ficticio
 	/*aspasnodeparent = mNode->createChildSceneNode("nodeparent");
 	aspas = new AspasMolino(aspasnodeparent->createChildSceneNode("aspas"),6);*/
-	aspas = new AspasMolino(mNode->createChildSceneNode("aspas"),6);
+	aspasnode = mNode->createChildSceneNode("aspas");
+	aspas = new AspasMolino(aspasnode,6);
+
 	cilindro = mNode->createChildSceneNode("cilindro");
 	esfera = mNode->createChildSceneNode("esfera");
 	Ogre::Entity* ent = mSM->createEntity("Barrel.mesh");
 	cilindro->attachObject(ent);
 	ent = mSM->createEntity("sphere.mesh");
 	esfera->attachObject(ent);
-	aspasnode = aspas->getNode();
+	//aspasnode = aspas->getNode();
 	aspasnode->scale(Vector3(.25));
-	aspasnode->translate(Vector3(0, 0, 80));
+	aspasnode->translate(Vector3(0, 100, 80));
 	esfera->scale(Vector3(.75));
+	esfera->translate(Vector3(0, 100, 0));
 	cilindro->scale(Vector3(30));
-	cilindro->translate(Vector3(0, -100, 0));
+	cilindro->translate(Vector3(0, 0, 0));
 
 }
 
@@ -36,9 +39,11 @@ bool Molino::keyPressed(const OgreBites::KeyboardEvent& evt)
 		//aspasnodeparent->yaw(Degree(5));
 
 		//truco
-		aspasnode->translate(0, 0, -80,Ogre::Node::TS_LOCAL);
+		aspasnode->translate(0, -100, -80,Ogre::Node::TS_LOCAL);
+		aspasnode->setScale(Vector3(1));
 		aspasnode->yaw(Degree(5));
-		aspasnode->translate(0, 0, 80, Ogre::Node::TS_LOCAL);
+		aspasnode->setScale(Vector3(0.25));
+		aspasnode->translate(0, 100, 80, Ogre::Node::TS_LOCAL);
 	}
 	return false;
 }

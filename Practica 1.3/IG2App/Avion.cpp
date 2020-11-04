@@ -3,7 +3,7 @@
 
 Avion::Avion(Ogre::SceneNode* node) : EntidadIG(node)
 {
-	EntidadIG::addListener(this);
+	
 
 	Ogre::Entity* ent = mSM->createEntity("sphere.mesh");
 	cuerpoNode = mNode->createChildSceneNode("cuerpoNode");

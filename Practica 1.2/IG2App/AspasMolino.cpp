@@ -83,9 +83,6 @@ bool AspasMolino::keyPressed(const OgreBites::KeyboardEvent& evt) {
 	if (evt.keysym.sym == SDLK_g)
 	{
 		roll(5);
-
-
-
 	}
 	return true;
 }

@@ -3,7 +3,7 @@
 
 Molino::Molino(Ogre::SceneNode* node) : EntidadIG(node)
 {
-	EntidadIG::addListener(this);
+	
 
 	//nodo ficticio
 	/*aspasnodeparent = mNode->createChildSceneNode("nodeparent");
@@ -12,8 +12,10 @@ Molino::Molino(Ogre::SceneNode* node) : EntidadIG(node)
 	cilindro = mNode->createChildSceneNode("cilindro");
 	esfera = mNode->createChildSceneNode("esfera");
 	Ogre::Entity* ent = mSM->createEntity("Barrel.mesh");
+	ent->setMaterialName("piedra");
 	cilindro->attachObject(ent);
 	ent = mSM->createEntity("sphere.mesh");
+	ent->setMaterialName("amarillo");
 	esfera->attachObject(ent);
 	aspasnode = aspas->getNode();
 	aspasnode->scale(Vector3(.25));
@@ -55,6 +57,4 @@ bool Molino::keyPressed(const OgreBites::KeyboardEvent& evt)
 	return false;
 }
 
-void Molino::receiveEvent(EntidadIG* entidad)
-{
-}
+

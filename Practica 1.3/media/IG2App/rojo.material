@@ -1,0 +1,10 @@
+material rojo 
+{
+    technique 
+    {
+       pass 
+       {
+           diffuse 1 0 0
+        }
+    }
+}

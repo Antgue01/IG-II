@@ -7,6 +7,7 @@ AspasMolino::AspasMolino(Ogre::SceneNode* node, int num, std::string nombre) : E
 	arrayAspas = new Aspa * [numAspas];
 	cilindroCentral = mNode->createChildSceneNode("cilindrocentral" + (nombre));
 	Ogre::Entity * ent = mSM->createEntity("Barrel.mesh");
+	ent->setMaterialName("negro");
 	cilindroCentral->attachObject(ent);
 	cilindroCentral->scale(Vector3(13));
 	cilindroCentral->pitch(Ogre::Degree(90));
