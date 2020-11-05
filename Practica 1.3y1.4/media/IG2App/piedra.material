@@ -1,0 +1,13 @@
+material piedra 
+{
+    technique 
+    {
+       pass 
+       {
+           texture_unit 
+           {
+            texture rockwall.tga
+           }
+        }
+    }
+}

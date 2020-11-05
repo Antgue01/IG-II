@@ -1,0 +1,10 @@
+material marron 
+{
+    technique 
+    {
+       pass 
+       {
+           diffuse 0.3686 0.2 0
+        }
+    }
+}
