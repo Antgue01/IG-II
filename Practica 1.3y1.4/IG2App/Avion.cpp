@@ -11,6 +11,7 @@ Avion::Avion(Ogre::SceneNode* node) : EntidadIG(node)
 	luz->setSpotlightInnerAngle(Ogre::Degree(5.0f));
 	luz->setSpotlightOuterAngle(Ogre::Degree(45.0f));
 	luz->setSpotlightFalloff(0.0f);
+	luz->setCastShadows(false);
 
 	foco = mNode->createChildSceneNode();
 	foco->attachObject(luz);
@@ -20,21 +21,26 @@ Avion::Avion(Ogre::SceneNode* node) : EntidadIG(node)
 	Ogre::Entity* ent = mSM->createEntity("sphere.mesh");
 	cuerpoNode = mNode->createChildSceneNode("cuerpoNode");
 	cuerpoNode->attachObject(ent);
-	ent = mSM->createEntity("cube.mesh");
+	ent->setMaterialName("Practica1/rojo");
 
+	ent = mSM->createEntity("cube.mesh");
+	ent->setMaterialName("Practica1/cuadros");
 	AlaINode = mNode->createChildSceneNode("AlaInode");
 	AlaINode->attachObject(ent);
 	ent = mSM->createEntity("cube.mesh");
+	ent->setMaterialName("Practica1/cuadros");
 	AlaDNode = mNode->createChildSceneNode("AlaDnode");
 	AlaDNode->attachObject(ent);
 
 	ent = mSM->createEntity("Barrel.mesh");
 	frenteNode = mNode->createChildSceneNode("frenteNode");
 	frenteNode->attachObject(ent);
+	ent->setMaterialName("Practica1/naranja");
 
 	ent = mSM->createEntity("ninja.mesh");
 	pilotoNode = mNode->createChildSceneNode("PilotoInode");
 	pilotoNode->attachObject(ent);
+	ent->setMaterialName("Practica1/amarillo");
 
 	aspas1 = new AspasMolino(mNode->createChildSceneNode("helice1node"), 6, "asdfg");
 	helice1Node = aspas1->getNode();

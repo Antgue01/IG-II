@@ -66,8 +66,11 @@ void IG2App::setup(void)
 {
 	// do not forget to call the base first
 	IG2ApplicationContext::setup();
-
+	
 	mSM = mRoot->createSceneManager();
+	
+	mSM->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
+		
 
 	// register our scene with the RTSS
 	mShaderGenerator->addSceneManager(mSM);
@@ -218,13 +221,13 @@ void IG2App::setupScene(void)
 	simbad->getNode()->scale(15, 15, 15);		
 	simbad->getNode()->translate(-450, -125, 300);
 
-	planoMolino = new Plano(mSM->getRootSceneNode()->createChildSceneNode("planoMolino"),300,300,"planoSueloMolino","naranja");
+	planoMolino = new Plano(mSM->getRootSceneNode()->createChildSceneNode("planoMolino"),300,300,"planoSueloMolino","Practica1/naranja");
 	planoMolino->getNode()->translate(380, -190, -240);
 
-	planoSuelo = new Plano(mSM->getRootSceneNode()->createChildSceneNode("plano"),1080,800,"planoSuelo","agua");
+	planoSuelo = new Plano(mSM->getRootSceneNode()->createChildSceneNode("plano"),1080,800,"planoSuelo","Practica1/agua");
 	planoSuelo->getNode()->translate(0, -200, 0);
 
-	planoSimbad = new Plano(mSM->getRootSceneNode()->createChildSceneNode("planoSimbad"), 300, 300,"PlanoSueloSimbad","rojo");
+	planoSimbad = new Plano(mSM->getRootSceneNode()->createChildSceneNode("planoSimbad"), 300, 300,"PlanoSueloSimbad","Practica1/rojo");
 	planoSimbad->getNode()->translate(-380, -190, 240);
 
 

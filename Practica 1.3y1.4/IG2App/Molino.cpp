@@ -20,12 +20,14 @@ Molino::Molino(Ogre::SceneNode* node) : EntidadIG(node)
 	cilindro->attachObject(ent);
 	cilindro->scale(Vector3(30));
 	cilindro->translate(Vector3(0, 0, 0));
+	ent->setMaterialName("Practica1/piedra");
 
 	esfera = mNode->createChildSceneNode("esfera");
 	ent = mSM->createEntity("sphere.mesh");
 	esfera->attachObject(ent);
 	esfera->scale(Vector3(.75));
 	esfera->translate(Vector3(0, 100, 0));
+	ent->setMaterialName("Practica1/amarillo");
 }
 
 //----------------------Apartado 24-------------------------------
