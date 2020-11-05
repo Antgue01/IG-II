@@ -11,6 +11,7 @@
 #include "AspasMolino.h"
 #include "Molino.h"
 #include "Avion.h"
+#include "Simbad.h"
 
 class IG2App : public  OgreBites::IG2ApplicationContext, OgreBites::InputListener 
 {
@@ -50,6 +51,7 @@ protected:
   Molino* m = nullptr;
   Avion* avion = nullptr;
   SceneNode* simbad = nullptr;
+  Simbad* simbad = nullptr;
   
 };
 

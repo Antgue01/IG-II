@@ -26,20 +26,20 @@ Molino::Molino(Ogre::SceneNode* node) : EntidadIG(node)
 
 }
 
-//void Molino::frameRendered(const Ogre::FrameEvent& evt)
-//{
-//
-//
-//	Ogre::Real time = evt.timeSinceLastFrame;
-//	aspas->roll(time * 15);
-//
-//}
+void Molino::frameRendered(const Ogre::FrameEvent& evt)
+{
+
+
+	Ogre::Real time = evt.timeSinceLastFrame;
+	aspas->roll(time * 15);
+
+}
 
 bool Molino::keyPressed(const OgreBites::KeyboardEvent& evt)
 {
 	if (evt.keysym.sym == SDLK_g)
 	{
-		//if (!anim)
+		if (!anim)
 			aspas->roll(5);
 	}
 	else if (evt.keysym.sym == SDLK_c) {

@@ -1,6 +1,7 @@
 #pragma once
 #include "AspasMolino.h"
 #include "EntidadIG.h"
+#include <OgreCameraMan.h>
 
 class Avion : public EntidadIG
 {
@@ -9,6 +10,7 @@ public:
 	virtual ~Avion() { EntidadIG::~EntidadIG(); delete aspas1; delete aspas2; }
 
 	virtual bool keyPressed(const OgreBites::KeyboardEvent& evt);
+	virtual void frameRendered(const Ogre::FrameEvent& evt);
 	
 protected:
 	Ogre::SceneNode* cuerpoNode;
@@ -18,6 +20,7 @@ protected:
 	Ogre::SceneNode* pilotoNode;
 	Ogre::SceneNode* helice1Node;
 	Ogre::SceneNode* helice2Node;
+	Ogre::SceneNode* foco;
 	AspasMolino* aspas1;
 	AspasMolino* aspas2;
 };
