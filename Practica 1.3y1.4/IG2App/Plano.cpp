@@ -3,6 +3,9 @@
 
 Plano::Plano(Ogre::SceneNode* node, int ancho, int largo, std::string name, std::string matName) : EntidadIG(node)
 {
+
+	EntidadIG::addListener(this);
+
 	Ogre::MeshManager::getSingleton().createPlane(name,
 		Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
 		Ogre::Plane(Ogre::Vector3::UNIT_Y, 0),
@@ -13,4 +16,10 @@ Plano::Plano(Ogre::SceneNode* node, int ancho, int largo, std::string name, std:
 
 	mNode->attachObject(p);
 	
+}
+
+void Plano::receiveEvent(EntidadIG* entidad)
+{
+
+
 }

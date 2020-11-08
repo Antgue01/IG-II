@@ -13,7 +13,8 @@ public:
 	
 	virtual void frameRendered(const Ogre::FrameEvent& evt);
 	virtual bool keyPressed(const OgreBites::KeyboardEvent& evt);
-			
+	void receiveEvent(EntidadIG* entidad);
+
 protected:
 	Ogre::SceneNode* esfera;
 	Ogre::SceneNode* cilindro;
@@ -21,5 +22,6 @@ protected:
 	Ogre::SceneNode* aspasnodeparent;
 	AspasMolino* aspas;
 	bool anim = true;
+	Ogre::Entity* entEsfera = nullptr;
 };
 

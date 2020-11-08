@@ -9,6 +9,8 @@ public:
 	Plano(Ogre::SceneNode* node,int ancho,int largo,std::string name, std::string matName);
 	virtual ~Plano() { }
 
+	void receiveEvent(EntidadIG* entidad);
+
 protected:
 	
 

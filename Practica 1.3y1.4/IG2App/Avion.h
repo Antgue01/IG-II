@@ -11,6 +11,7 @@ public:
 
 	virtual bool keyPressed(const OgreBites::KeyboardEvent& evt);
 	virtual void frameRendered(const Ogre::FrameEvent& evt);
+	void receiveEvent(EntidadIG* entidad);
 	
 protected:
 	Ogre::SceneNode* cuerpoNode;
@@ -23,5 +24,7 @@ protected:
 	Ogre::SceneNode* foco;
 	AspasMolino* aspas1;
 	AspasMolino* aspas2;
+
+	bool rotate = true;
 };
 

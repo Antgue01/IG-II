@@ -3,6 +3,9 @@
 
 Avion::Avion(Ogre::SceneNode* node) : EntidadIG(node)
 {
+
+	EntidadIG::addListener(this);
+
 	//-------------------Apartado 26-------------------------
 	Ogre::Light* luz = mSM->createLight("LuzFoco");
 	luz->setType(Ogre::Light::LT_SPOTLIGHT);
@@ -74,6 +77,11 @@ bool Avion::keyPressed(const OgreBites::KeyboardEvent& evt)
 		aspas1->roll(-5);
 		aspas2->roll(-5);
 	}
+	//---------------Apartado 31--------------------
+	else if (evt.keysym.sym == SDLK_r)
+	{
+		sendEvent(this);
+	}
 	return false;
 }
 
@@ -81,11 +89,21 @@ bool Avion::keyPressed(const OgreBites::KeyboardEvent& evt)
 void Avion::frameRendered(const Ogre::FrameEvent& evt)
 {
 	Ogre::Real time = evt.timeSinceLastFrame;
-	
+
 	aspas1->roll(time * -500);
 	aspas2->roll(time * -500);
 
-	mNode->translate(400, 0, 0,Ogre::Node::TS_LOCAL);
-	mNode->yaw(Degree(50*time));
-    mNode->translate(-400, 0, 0, Ogre::Node::TS_LOCAL);
+	if (rotate)
+	{
+		mNode->translate(400, 0, 0, Ogre::Node::TS_LOCAL);
+		mNode->yaw(Degree(50 * time));
+		mNode->translate(-400, 0, 0, Ogre::Node::TS_LOCAL);
+	}
+
+	
+}
+//---------------Apartado 31--------------------
+void Avion::receiveEvent(EntidadIG* entidad)
+{
+	rotate = !rotate;
 }

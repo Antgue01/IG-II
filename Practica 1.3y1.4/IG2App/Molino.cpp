@@ -3,6 +3,9 @@
 
 Molino::Molino(Ogre::SceneNode* node) : EntidadIG(node)
 {	
+
+	EntidadIG::addListener(this);
+
 	//nodo ficticio
 	/*aspasnodeparent = mNode->createChildSceneNode("nodeparent");
 	aspas = new AspasMolino(aspasnodeparent->createChildSceneNode("aspas"),6);
@@ -23,11 +26,11 @@ Molino::Molino(Ogre::SceneNode* node) : EntidadIG(node)
 	ent->setMaterialName("Practica1/piedra");
 
 	esfera = mNode->createChildSceneNode("esfera");
-	ent = mSM->createEntity("sphere.mesh");
-	esfera->attachObject(ent);
+	entEsfera = mSM->createEntity("sphere.mesh");
+	esfera->attachObject(entEsfera);
 	esfera->scale(Vector3(.75));
 	esfera->translate(Vector3(0, 100, 0));
-	ent->setMaterialName("Practica1/amarillo");
+	entEsfera->setMaterialName("Practica1/amarillo");
 }
 
 //----------------------Apartado 24-------------------------------
@@ -57,6 +60,12 @@ bool Molino::keyPressed(const OgreBites::KeyboardEvent& evt)
 		aspasNode->translate(0, 0, 80, Ogre::Node::TS_LOCAL);
 	}
 	return false;
+}
+
+//---------------Apartado 31--------------------
+void Molino::receiveEvent(EntidadIG* entidad) 
+{
+	entEsfera->setMaterialName("Practica1/rojo");
 }
 
 
