@@ -1,3 +1,18 @@
+material Practica1/cara 
+{
+    technique 
+    {
+       pass 
+       {
+           texture_unit 
+           {
+            texture spotlight_image.png
+            env_map spherical
+           }
+        }
+    }
+}
+
 material Practica1/agua 
 {
     technique 

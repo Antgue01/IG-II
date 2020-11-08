@@ -231,6 +231,13 @@ void IG2App::setupScene(void)
 	planoSimbad->getNode()->translate(-380, -190, 240);
 
 
+	//---------------------------Apartado 30-----------------------------------------
+	Ogre::Entity* e = mSM->createEntity("sphere.mesh");
+	e->setMaterialName("Practica1/cara");
+	faceNode = mSM->getRootSceneNode()->createChildSceneNode("face");
+	faceNode->attachObject(e);
+	faceNode->scale(0.2, 0.2, 0.2);
+	faceNode->translate(470, -170, -150);
 
 
 	mCamMgr = new OgreBites::CameraMan(mCamNode);

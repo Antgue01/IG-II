@@ -50,7 +50,7 @@ protected:
   Plano* planoSimbad = nullptr;
   Molino* m = nullptr;
   Avion* avion = nullptr;
-  //SceneNode* simbad = nullptr;
+  SceneNode* faceNode = nullptr;
   Simbad* simbad = nullptr;
   
 };
