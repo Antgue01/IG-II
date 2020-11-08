@@ -36,8 +36,11 @@ Molino::Molino(Ogre::SceneNode* node) : EntidadIG(node)
 //----------------------Apartado 24-------------------------------
 void Molino::frameRendered(const Ogre::FrameEvent& evt)
 {
-	Ogre::Real time = evt.timeSinceLastFrame;
-	aspas->roll(time * 15);
+	if (moverAspas)
+	{
+	  Ogre::Real time = evt.timeSinceLastFrame;
+	  aspas->roll(time * 15);
+	}
 }
 
 bool Molino::keyPressed(const OgreBites::KeyboardEvent& evt)
@@ -66,6 +69,7 @@ bool Molino::keyPressed(const OgreBites::KeyboardEvent& evt)
 void Molino::receiveEvent(EntidadIG* entidad) 
 {
 	entEsfera->setMaterialName("Practica1/rojo");
+	moverAspas = !moverAspas;
 }
 
 

@@ -22,6 +22,7 @@ protected:
 	Ogre::SceneNode* helice1Node;
 	Ogre::SceneNode* helice2Node;
 	Ogre::SceneNode* foco;
+	Ogre::Light* luz;
 	AspasMolino* aspas1;
 	AspasMolino* aspas2;
 

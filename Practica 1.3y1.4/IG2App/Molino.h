@@ -22,6 +22,7 @@ protected:
 	Ogre::SceneNode* aspasnodeparent;
 	AspasMolino* aspas;
 	bool anim = true;
+	bool moverAspas = true;
 	Ogre::Entity* entEsfera = nullptr;
 };
 

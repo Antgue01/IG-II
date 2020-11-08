@@ -13,6 +13,7 @@ public:
 
 protected:
 	
-
+	Ogre::Entity* p;
+	std::string name;
 };
 

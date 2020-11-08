@@ -7,7 +7,7 @@ Avion::Avion(Ogre::SceneNode* node) : EntidadIG(node)
 	EntidadIG::addListener(this);
 
 	//-------------------Apartado 26-------------------------
-	Ogre::Light* luz = mSM->createLight("LuzFoco");
+	luz = mSM->createLight("LuzFoco");
 	luz->setType(Ogre::Light::LT_SPOTLIGHT);
 	luz->setDiffuseColour(Ogre::ColourValue(1.0f, 1.0f, 1.0f));
 	luz->setDirection(Ogre::Vector3(1, -1, 0));
@@ -15,7 +15,7 @@ Avion::Avion(Ogre::SceneNode* node) : EntidadIG(node)
 	luz->setSpotlightOuterAngle(Ogre::Degree(45.0f));
 	luz->setSpotlightFalloff(0.0f);
 	luz->setCastShadows(false);
-
+	
 	foco = mNode->createChildSceneNode();
 	foco->attachObject(luz);
 
@@ -106,4 +106,6 @@ void Avion::frameRendered(const Ogre::FrameEvent& evt)
 void Avion::receiveEvent(EntidadIG* entidad)
 {
 	rotate = !rotate;
+	luz->setVisible(false);
+
 }

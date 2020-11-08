@@ -3,6 +3,8 @@
 
 Aspa::Aspa(Ogre::SceneNode* node, int i,std::string nombre):EntidadIG(node) {
 	
+    EntidadIG::addListener(this);
+
 	//tablero
     Ogre::Entity* ent = mSM->createEntity("cube.mesh");
     ent->setMaterialName("Practica1/marron");
@@ -25,4 +27,10 @@ bool Aspa::keyPressed(const OgreBites::KeyboardEvent& evt) {
         
 	}
 	return true;
+}
+
+//----------------Apartado 31--------------------
+void Aspa::receiveEvent(EntidadIG* entidad)
+{
+    cilindroNode->setVisible(false);
 }
