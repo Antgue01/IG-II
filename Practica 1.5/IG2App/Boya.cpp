@@ -11,13 +11,11 @@ Boya::Boya(Ogre::SceneNode* n) : EntidadIG(n), ent(nullptr) {
 	Ogre::Animation* anim = mSM->createAnimation("AnimVV", duracion);
 	Ogre::NodeAnimationTrack* track = anim->createNodeTrack(0);
 	int durPaso = duracion / 4;
-	int longDesp = 100;
+	int longDesp = 70;
 	track->setAssociatedNode(mNode);
 
-	Ogre::Vector3 pos(-10, -250, 50);	 
-
+	Ogre::Vector3 pos(-10, -200, 50);	 
 	Ogre::Vector3 src(0, 0, 1);
-
 
 	Ogre::TransformKeyFrame* kf = track->createNodeKeyFrame(0 * durPaso); //Frame 0
 	kf->setScale(mNode->getScale());
@@ -34,15 +32,14 @@ Boya::Boya(Ogre::SceneNode* n) : EntidadIG(n), ent(nullptr) {
 	kf->setTranslate(pos);
 	kf->setScale(mNode->getScale());
 	
-
 	kf = track->createNodeKeyFrame(3 * durPaso);  //Frame 3
-	pos += Ogre::Vector3::UNIT_Y * longDesp;
+	pos += Ogre::Vector3::NEGATIVE_UNIT_Y * longDesp;
 	kf->setTranslate(pos);
 	kf->setScale(mNode->getScale());
 	kf->setRotation(src.getRotationTo(Ogre::Vector3(-1, 0, 1))); // Yaw(-45) 
 
 	kf = track->createNodeKeyFrame(4 * durPaso);  //Frame 4
-	pos += Ogre::Vector3::NEGATIVE_UNIT_Y * longDesp;
+	pos += Ogre::Vector3::UNIT_Y * longDesp;
 	kf->setTranslate(pos);
 	kf->setScale(mNode->getScale());
 

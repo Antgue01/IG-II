@@ -5,6 +5,11 @@
 #include <OgreFrameListener.h>
 #include "IG2ApplicationContext.h"
 
+#include <OgreAnimationTrack.h>
+#include <OgreAnimation.h>
+#include <OgreKeyFrame.h>
+#include <OgreFrameListener.h>
+
 class Simbad : public EntidadIG
 {
 public:
@@ -18,10 +23,11 @@ public:
 protected:
 	Ogre::Entity* swordent;
 	Ogre::Entity* simbadEnt;
-	bool danceBool = true;
+	bool danceBool = false;
 	bool rightHand = true;
 	Ogre::AnimationState* dance;
 	Ogre::AnimationState* runarms;
 	Ogre::AnimationState* runlegs;
+	Ogre::AnimationState* moverse;
 };
 
