@@ -240,9 +240,11 @@ void IG2App::setupScene(void)
 	faceNode->attachObject(e);
 	faceNode->scale(0.2, 0.2, 0.2);
 	faceNode->translate(470, -170, -150);
+
 	boya = new Boya(mSM->getRootSceneNode()->createChildSceneNode("boya"));
 	SceneNode* aux = boya->getNode();
-	aux->translate(0, -257, 0);
+	//aux->setScale(15, 25, 15);
+	aux->translate(-10, -257, 50);
 	addInputListener(boya);
 
 	mCamMgr = new OgreBites::CameraMan(mCamNode);
