@@ -4,7 +4,6 @@ Simbad::Simbad(Ogre::SceneNode* node) : EntidadIG(node), swordent(nullptr)
 {
 	simbadEnt = mSM->createEntity("Sinbad.mesh");
 	mNode->attachObject(simbadEnt);
-	/*mNode->setScale(15, 15, 15);*/
 
 	dance = simbadEnt->getAnimationState("Dance");
 	dance->setLoop(true);
@@ -24,7 +23,7 @@ Simbad::Simbad(Ogre::SceneNode* node) : EntidadIG(node), swordent(nullptr)
 	float longDespZ = 270;
 	track->setAssociatedNode(mNode);
 
-	Ogre::Vector3 pos(0,0,0/*-400, -113, 270*/);
+	Ogre::Vector3 pos(0,0,0);
 	Ogre::Vector3 src(0, 0, 1);
 	Ogre::Vector3 rotation(400, 0, -270);rotation.normalise();
 	

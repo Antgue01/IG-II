@@ -218,11 +218,11 @@ void IG2App::setupScene(void)
 	avion->getNode()->translate(-400, 200, 0);
 	addInputListener(avion);
 
-	/*simbad = new Simbad(mSM->getRootSceneNode()->createChildSceneNode("simbad"));
+	simbad = new Simbad(mSM->getRootSceneNode()->createChildSceneNode("simbad"));
 	simbad->getNode()->scale(15, 15, 15);		
 	simbad->getNode()->translate(-400, -113, 270);
 	simbad->getNode()->setInitialState();
-	addInputListener(simbad);*/
+	addInputListener(simbad);
 
 	planoMolino = new Plano(mSM->getRootSceneNode()->createChildSceneNode("planoMolino"),300,300,"planoSueloMolino","Practica1/naranja");
 	planoMolino->getNode()->translate(380, -190, -240);
@@ -244,12 +244,12 @@ void IG2App::setupScene(void)
 
 
 	//--------------------------Apartado 36-----------------------------------
-	boya = new Boya(mSM->getRootSceneNode()->createChildSceneNode("boya"));
+	/*boya = new Boya(mSM->getRootSceneNode()->createChildSceneNode("boya"));
 	SceneNode* aux = boya->getNode();
 	aux->setScale(15, 25, 15);
 	aux->translate(-10, -250, 50);
 	aux->setInitialState();
-	addInputListener(boya);
+	addInputListener(boya);*/
 
 	mCamMgr = new OgreBites::CameraMan(mCamNode);
 	addInputListener(mCamMgr);

@@ -5,8 +5,6 @@ Boya::Boya(Ogre::SceneNode* n) : EntidadIG(n), ent(nullptr) {
 	mNode->attachObject(ent);
 	ent->setMaterialName("Practica1/cuadros");
 
-	/*mNode->setScale(15, 25, 15);*/
-
 	int duracion = 16;
 	Ogre::Animation* anim = mSM->createAnimation("AnimVV", duracion);
 	Ogre::NodeAnimationTrack* track = anim->createNodeTrack(0);
@@ -18,7 +16,6 @@ Boya::Boya(Ogre::SceneNode* n) : EntidadIG(n), ent(nullptr) {
 	Ogre::Vector3 src(0, 0, 1);
 
 	Ogre::TransformKeyFrame* kf = track->createNodeKeyFrame(0 * durPaso); //Frame 0
-	//kf->setScale(mNode->getScale());
 	kf->setTranslate(pos);
 	
 	kf = track->createNodeKeyFrame(1 * durPaso);  //Frame 1
