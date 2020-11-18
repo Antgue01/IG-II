@@ -23,22 +23,22 @@ Simbad::Simbad(Ogre::SceneNode* node) : EntidadIG(node), swordent(nullptr)
 	float longDespZ = 270;
 	track->setAssociatedNode(mNode);
 
-	Ogre::Vector3 pos(0,0,0);
+	Ogre::Vector3 pos(0, 0, 0);
 	Ogre::Vector3 src(0, 0, 1);
-	Ogre::Vector3 rotation(400, 0, -270);rotation.normalise();
-	
+	Ogre::Vector3 rotation(400, 0, -270); rotation.normalise();
+
 	Ogre::TransformKeyFrame* kf = track->createNodeKeyFrame(0 * durPaso); //Frame 0->posicion inicial
 	kf->setTranslate(pos);
-	kf->setRotation(src.getRotationTo(rotation));  
+	kf->setRotation(src.getRotationTo(rotation));
 
 	kf = track->createNodeKeyFrame(1 * durPaso);  //Frame 1-> va hacia el centro
-	pos += Ogre::Vector3(longDespX,0, -longDespZ);
-	kf->setTranslate(pos);	
-	kf->setRotation(src.getRotationTo(rotation)); 
+	pos += Ogre::Vector3(longDespX, 0, -longDespZ);
+	kf->setTranslate(pos);
+	kf->setRotation(src.getRotationTo(rotation));
 
 	kf = track->createNodeKeyFrame(2 * durPaso);  //Frame 2-> en el centro gira
 	kf->setTranslate(pos);
-	rotation = { -longDespX,0,longDespZ };rotation.normalise();	
+	rotation = { -longDespX,0,longDespZ }; rotation.normalise();
 	kf->setRotation(src.getRotationTo(rotation));
 
 	kf = track->createNodeKeyFrame(3 * durPaso);  //Frame 3-> vuelve
@@ -61,9 +61,9 @@ void Simbad::frameRendered(const Ogre::FrameEvent& evt)
 	else {
 		runlegs->addTime(evt.timeSinceLastFrame);
 		runarms->addTime(evt.timeSinceLastFrame);
+		moverse->addTime(evt.timeSinceLastFrame);
 	}
 
-	if(!danceBool)moverse->addTime(evt.timeSinceLastFrame);
 
 
 }
@@ -77,7 +77,7 @@ bool Simbad::keyPressed(const OgreBites::KeyboardEvent& evt)
 			dance->setEnabled(false);
 			runarms->setEnabled(true);
 			runlegs->setEnabled(true);
-			
+
 		}
 		else {
 			danceBool = true;
@@ -110,6 +110,6 @@ bool Simbad::keyPressed(const OgreBites::KeyboardEvent& evt)
 
 		break;
 	}
-}
+	}
 	return false;
 }

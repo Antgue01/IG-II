@@ -67,6 +67,9 @@ Avion::Avion(Ogre::SceneNode* node) : EntidadIG(node)
 	frenteNode->pitch(Degree(90));
 	frenteNode->translate(0, 0, 65);
 
+	
+	
+
 }
 
 bool Avion::keyPressed(const OgreBites::KeyboardEvent& evt)

@@ -244,12 +244,12 @@ void IG2App::setupScene(void)
 
 
 	//--------------------------Apartado 36-----------------------------------
-	/*boya = new Boya(mSM->getRootSceneNode()->createChildSceneNode("boya"));
+	boya = new Boya(mSM->getRootSceneNode()->createChildSceneNode("boya"));
 	SceneNode* aux = boya->getNode();
 	aux->setScale(15, 25, 15);
 	aux->translate(-10, -250, 50);
 	aux->setInitialState();
-	addInputListener(boya);*/
+	addInputListener(boya);
 
 	mCamMgr = new OgreBites::CameraMan(mCamNode);
 	addInputListener(mCamMgr);

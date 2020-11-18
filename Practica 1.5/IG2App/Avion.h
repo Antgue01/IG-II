@@ -24,7 +24,10 @@ protected:
 	Ogre::SceneNode* foco;
 	Ogre::Light* luz;
 	AspasMolino* aspas1;
+	BillboardSet* Bbs;
 	AspasMolino* aspas2;
+	
+
 
 	bool rotate = true;
 };
