@@ -31,6 +31,8 @@ protected:
 	BillboardSet* Bbs;
 	Ogre::SceneNode* BboardNode;
 	ParticleSystem* pSystem;
+	ParticleSystem* smokeTrail;
+	Ogre::SceneNode* smokeTrailNode;
 	Ogre::SceneNode* pSystemNode;
 
 };

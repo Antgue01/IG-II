@@ -78,7 +78,9 @@ Avion::Avion(Ogre::SceneNode* node) : EntidadIG(node)
 	pSystemNode = mNode->createChildSceneNode("particlesNode");
 	pSystem->setEmitting(false);
 	pSystemNode->attachObject(pSystem);
-
+	smokeTrail = mSM->createParticleSystem("trail", "IG2App/SmokeTrail");
+	smokeTrailNode = mNode->createChildSceneNode("trailNode");
+	smokeTrailNode->attachObject(smokeTrail);
 }
 
 bool Avion::keyPressed(const OgreBites::KeyboardEvent& evt)
@@ -128,5 +130,6 @@ void Avion::receiveEvent(EntidadIG* entidad)
 	helice1Node->setVisible(false);
 	helice2Node->setVisible(false);
 	BboardNode->setVisible(false);
+	smokeTrailNode->setVisible(false);
 
 }
