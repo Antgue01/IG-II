@@ -15,7 +15,7 @@ Avion::Avion(Ogre::SceneNode* node) : EntidadIG(node)
 	luz->setSpotlightOuterAngle(Ogre::Degree(45.0f));
 	luz->setSpotlightFalloff(0.0f);
 	luz->setCastShadows(false);
-
+	luz->setVisible(false);
 	foco = mNode->createChildSceneNode();
 	foco->attachObject(luz);
 

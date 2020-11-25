@@ -13,32 +13,7 @@ bool IG2App::keyPressed(const OgreBites::KeyboardEvent& evt)
 	{
 		getRoot()->queueEndRendering();
 	}
-	else if (evt.keysym.sym == SDLK_h) {
-
-		//-----------------------Apartado 13----------------------------
-		 /*segundero->translate(0, -100, 0, Ogre::Node::TS_LOCAL);
-		 segundero->roll(Ogre::Degree(-5));
-		 segundero->translate(0, 100, 0, Ogre::Node::TS_LOCAL);*/
-	}
-	else if (evt.keysym.sym == SDLK_j) {
-		//-------------Apartado 14 ----------------------------
-		//tierra->translate(-200, 0, 0, Ogre::Node::TS_LOCAL);
-		//tierra->yaw(Degree(5));
-		//tierra->translate(200, 0, 0, Ogre::Node::TS_LOCAL);
-
-		//-------------Apartado 15-------------------------
-
-		/*luna->translate(-300, 0, 0, Ogre::Node::TS_LOCAL);
-		luna->yaw(Degree(-10));
-		luna->translate(300, 0, 0, Ogre::Node::TS_LOCAL);
-
-		tierra->translate(-200, 0, 0, Ogre::Node::TS_LOCAL);
-		tierra->yaw(Degree(5));
-		tierra->translate(200, 0, 0, Ogre::Node::TS_LOCAL);*/
-		
-	}
-
-
+	
 	return true;
 }
 
@@ -55,7 +30,6 @@ void IG2App::shutdown()
 	if (avion != nullptr) delete avion;
 	if (planoSuelo != nullptr) delete planoSuelo;
 	if (planoMolino != nullptr) delete planoMolino;
-	if (planoSimbad != nullptr) delete planoSimbad;
 	if (simbad != nullptr) delete simbad;
 	if (boya != nullptr) delete boya;
 
@@ -70,7 +44,7 @@ void IG2App::setup(void)
 	
 	mSM = mRoot->createSceneManager();
 	
-	mSM->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
+	//mSM->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
 		
 
 	// register our scene with the RTSS
@@ -104,7 +78,7 @@ void IG2App::setupScene(void)
 
 	// and tell it to render into the main window
 	Viewport* vp = getRenderWindow()->addViewport(cam);
-	vp->setBackgroundColour(Ogre::ColourValue(0.7, 0.8, 0.9));
+	vp->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 0.0)); //0.7, 0.8, 0.9
 
 	//------------------------------------------------------------------------
 
@@ -112,7 +86,7 @@ void IG2App::setupScene(void)
 
 	Light* luz = mSM->createLight("Luz");
 	luz->setType(Ogre::Light::LT_DIRECTIONAL);
-	luz->setDiffuseColour(0.75, 0.75, 0.75);
+	luz->setDiffuseColour(1.0, 1.0, 1.0);
 
 	mLightNode = mSM->getRootSceneNode()->createChildSceneNode("nLuz");
 	//mLightNode = mCamNode->createChildSceneNode("nLuz");
@@ -124,87 +98,6 @@ void IG2App::setupScene(void)
 	//------------------------------------------------------------------------
 
 	// finally something to render
-
-
-  //-------------Apartado 9 ----------------------------
-	
-	//Molino* m = new Molino(mSM->getRootSceneNode()->createChildSceneNode("molino"));
-	//addInputListener(m);
-
-  //------------- Apartado 12 ------------------------
-	/*Clock = mSM->getRootSceneNode()->createChildSceneNode("Clock");
-	int radious = 400;
-	Ogre::Entity* ent = nullptr;
-	padreEsferas = Clock->createChildSceneNode("padreEsferas");
-	for (int i = 0; i < 12; i++)
-	{
-		ent = mSM->createEntity("sphere.mesh");
-		Ogre::SceneNode* aux = padreEsferas->createChildSceneNode("Hora " + std::to_string(i));
-		spheres.push_back(aux);
-		aux->attachObject(ent);
-		aux->setPosition(radious * Ogre::Math::Sin(Ogre::Degree(360 / 12 * i)),
-			radious * Ogre::Math::Cos(Ogre::Degree(360 / 12 * i)), 0);
-		aux->setScale(Vector3(.5));
-	}
-	ent = mSM->createEntity("cube.mesh");
-	segundero = Clock->createChildSceneNode("segundero");
-	segundero->setScale(Vector3(.05, 3, 1));
-	segundero->setPosition(0, -100, 0);
-	segundero->attachObject(ent);
-
-	minutero = Clock->createChildSceneNode("minutero");
-	ent = mSM->createEntity("cube.mesh");
-	minutero->setScale(Vector3(.1, 3.5, 1));
-	minutero->setPosition(0, 100, 0);
-	minutero->attachObject(ent);
-
-	horas = Clock->createChildSceneNode("horas");
-	ent = mSM->createEntity("cube.mesh");
-	horas->setScale(Vector3(3, .2, 1));
-	horas->setPosition(120, 0, 0);
-	horas->attachObject(ent);
-
-	segundero->roll(Ogre::Degree(115),Ogre::Node::TS_PARENT);
-	segundero->translate(Vector3(-90, 60, 0), Ogre::Node::TS_PARENT);*/
-
-	//----------------Apartado 14 ------------------------------
-   // sol = mSM->getRootSceneNode()->createChildSceneNode("Sol");
-   // Ogre::Entity* ent = mSM->createEntity("sphere.mesh");
-   // sol->attachObject(ent);
-	  //ent = mSM->createEntity("sphere.mesh");
-   // tierra = mSM->getRootSceneNode()->createChildSceneNode("Tierra");
-   // tierra->attachObject(ent);
-   // tierra->scale(Vector3(.65));
-   // tierra->translate(200, 0, 0);
-
-	//----------------Apartado 15----------------------------
-	/*sol = mSM->getRootSceneNode()->createChildSceneNode("Sol");
-	Ogre::Entity* ent = mSM->createEntity("sphere.mesh");
-	sol->attachObject(ent);
-	ent = mSM->createEntity("sphere.mesh");
-	tierra = mSM->getRootSceneNode()->createChildSceneNode("Tierra");
-	tierra->attachObject(ent);
-	ent = mSM->createEntity("sphere.mesh");
-	luna = tierra->createChildSceneNode("Luna");
-	luna->attachObject(ent);
-
-	tierra->scale(Vector3(.65));
-	tierra->translate(200, 0, 0);
-
-	luna->scale(Vector3(.25));
-	luna->translate(200, 0, 0);*/
-	//------------------------------------------------------------------------
-
-	//-------------Apartado 16 ---------------------------
-	/*Avion* a = new Avion(mSM->getRootSceneNode()->createChildSceneNode("avion"));
-	addInputListener(a);*/
-
-
-	//------------------------ Apartado 18 -------------------------------
-
-	/*plano = new Plano(mSM->getRootSceneNode()->createChildSceneNode("plano"));
-	plano->getNode()->translate(0, -200, 0);*/
-
 
 	//---------------------------Apartado 23-----------------------------------------
 
@@ -227,12 +120,10 @@ void IG2App::setupScene(void)
 	planoMolino = new Plano(mSM->getRootSceneNode()->createChildSceneNode("planoMolino"),300,300,"planoSueloMolino","Practica1/naranja");
 	planoMolino->getNode()->translate(380, -190, -240);
 
-	planoSuelo = new Plano(mSM->getRootSceneNode()->createChildSceneNode("plano"),1080,800,"planoSuelo","Practica1/agua");
+	planoSuelo = new Plano(mSM->getRootSceneNode()->createChildSceneNode("plano"),1080,800,"planoSuelo","IG2App/reflejo");
 	planoSuelo->getNode()->translate(0, -200, 0);
-
-	planoSimbad = new Plano(mSM->getRootSceneNode()->createChildSceneNode("planoSimbad"), 300, 300,"PlanoSueloSimbad","Practica1/rojo");
-	planoSimbad->getNode()->translate(-380, -190, 240);
-
+	planoSuelo->setReflejo(cam);
+	
 
 	//---------------------------Apartado 30-----------------------------------------
 	Ogre::Entity* e = mSM->createEntity("sphere.mesh");
@@ -244,12 +135,16 @@ void IG2App::setupScene(void)
 
 
 	//--------------------------Apartado 36-----------------------------------
-	/*boya = new Boya(mSM->getRootSceneNode()->createChildSceneNode("boya"));
+	boya = new Boya(mSM->getRootSceneNode()->createChildSceneNode("boya"));
 	SceneNode* aux = boya->getNode();
 	aux->setScale(15, 25, 15);
 	aux->translate(-10, -250, 50);
 	aux->setInitialState();
-	addInputListener(boya);*/
+	addInputListener(boya);
+
+	mSM->setSkyPlane(true, Plane(Vector3::UNIT_Z, -20), "IG2App/space", 1, 1, true, 1.0, 10, 10);
+	//mSM->setSkyPlane(true, Plane(Vector3::UNIT_Z, -200), "IG2App/space", 1, 1, true, 0.0, 10, 10);
+
 
 	mCamMgr = new OgreBites::CameraMan(mCamNode);
 	addInputListener(mCamMgr);

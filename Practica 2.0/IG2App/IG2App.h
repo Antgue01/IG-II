@@ -31,29 +31,16 @@ protected:
   OgreBites::TrayManager* mTrayMgr = nullptr;    
   Ogre::SceneNode* mLightNode = nullptr;
   Ogre::SceneNode* mCamNode = nullptr;
-
-
   OgreBites::CameraMan* mCamMgr = nullptr;
-
-
-  SceneNode* Clock = nullptr;
-  SceneNode* padreEsferas = nullptr;
-  SceneNode* segundero = nullptr;
-  SceneNode* minutero = nullptr;
-  SceneNode* horas = nullptr;
-  SceneNode* tierra = nullptr;
-  SceneNode* sol = nullptr;
-  SceneNode* luna = nullptr;
-  std::vector<SceneNode*> spheres;
 
   Plano* planoSuelo = nullptr;
   Plano* planoMolino = nullptr;
-  Plano* planoSimbad = nullptr;
   Molino* m = nullptr;
   Avion* avion = nullptr;
   SceneNode* faceNode = nullptr;
   Boya* boya = nullptr;
   Simbad* simbad = nullptr;
+  
   
 };
 

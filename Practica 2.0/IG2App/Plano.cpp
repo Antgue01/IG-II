@@ -23,3 +23,40 @@ void Plano::receiveEvent(EntidadIG* entidad)
 	if(name== "planoSuelo")p->setMaterialName("Practica1/piedrasFondo");
 
 }
+
+void Plano::setReflejo(Ogre::Camera* cam)
+{
+	Ogre::Camera* camRef = mSM->createCamera("RefCam");
+	camRef->setNearClipDistance(cam->getNearClipDistance());
+	camRef->setFarClipDistance(cam->getFarClipDistance());
+
+	camRefNode = mNode->createChildSceneNode("camRefNode");
+	camRefNode->attachObject(camRef);
+	
+	movPlane = new Ogre::MovablePlane(Ogre::Vector3::UNIT_Y, mNode->getPosition() - cam->getParentSceneNode()->getPosition());
+	mNode->attachObject(movPlane);
+
+	camRef->enableReflection(movPlane);
+	camRef->enableCustomNearClipPlane(movPlane);
+
+	Ogre::TexturePtr rttRef = Ogre::TextureManager::getSingleton().createManual(
+		"rttReflejo", 
+		Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+		Ogre::TEX_TYPE_2D,
+		(Ogre::Real)cam->getViewport()->getActualWidth(), // widht ejemplo
+		(Ogre::Real)cam->getViewport()->getActualHeight(), // height ejemplo
+		0, Ogre::PF_R8G8B8, Ogre::TU_RENDERTARGET);
+
+ 
+	Ogre::RenderTexture* renderTexture = rttRef->getBuffer()->getRenderTarget();
+	Ogre::Viewport* vpt = renderTexture->addViewport(camRef); // ocupando toda
+	vpt->setClearEveryFrame(true); // la textura
+	vpt->setBackgroundColour(Ogre::ColourValue::White); // black/white
+	
+	
+	Ogre::TextureUnitState* tu = p->getSubEntity(0)->getMaterial()->
+		getTechnique(0)->getPass(0)->createTextureUnitState("rttReflejo");		 
+	tu->setColourOperation(Ogre::LBO_MODULATE);
+
+	tu->setProjectiveTexturing(true, camRef);
+}

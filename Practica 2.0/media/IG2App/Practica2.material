@@ -14,20 +14,72 @@ material Practica2/BBoard
     }
 }
 material IG2App/Smoke
-    {
+{
         technique
         {
             pass
-                {
+            {
                     lighting off
                     scene_blend alpha_blend
                     depth_write off
                     diffuse vertexcolour
                     texture_unit
-                        {
-                            texture smoke.png
-                            tex_address_mode clamp
-                        }
-                }
+                    {
+                        texture smoke.png
+                        tex_address_mode clamp
+                    }
+            }
         }
-    }
+}
+
+material IG2App/space
+{
+        technique
+        {
+            pass
+            {
+
+                lighting off
+
+                texture_unit
+                {
+                    texture spaceSky.jpg
+                    colour_op modulate
+                    rotate_anim 0.01                   
+                }
+
+                texture_unit
+                {
+                    texture lightMap.jpg
+                    colour_op modulate
+                    rotate_anim 0.01
+                } 
+            }
+        }
+}
+
+material IG2App/reflejo
+{
+        technique
+        {
+            pass
+            {
+
+                lighting off
+
+                texture_unit
+                {
+                    texture BeachStones.jpg
+                    colour_op modulate                                      
+                }
+
+                texture_unit
+                {
+                    texture Water02.jpg
+                    colour_op modulate   
+                    scroll_anim -0.1 0.0                
+                } 
+            }
+        }
+}
+
