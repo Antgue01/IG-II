@@ -32,6 +32,7 @@ void IG2App::shutdown()
 	if (planoMolino != nullptr) delete planoMolino;
 	if (simbad != nullptr) delete simbad;
 	if (boya != nullptr) delete boya;
+	if (face != nullptr) delete face;
 
 	// do not forget to call the base 
 	IG2ApplicationContext::shutdown();
@@ -126,13 +127,15 @@ void IG2App::setupScene(void)
 	
 
 	//---------------------------Apartado 30-----------------------------------------
-	Ogre::Entity* e = mSM->createEntity("sphere.mesh");
+	/*Ogre::Entity* e = mSM->createEntity("sphere.mesh");
 	e->setMaterialName("Practica1/cara");
 	faceNode = mSM->getRootSceneNode()->createChildSceneNode("face");
 	faceNode->attachObject(e);
 	faceNode->scale(0.2, 0.2, 0.2);
-	faceNode->translate(470, -170, -150);
+	faceNode->translate(470, -170, -150);*/
 
+	face = new Face(mSM->getRootSceneNode()->createChildSceneNode("face"));
+	addInputListener(face);
 
 	//--------------------------Apartado 36-----------------------------------
 	boya = new Boya(mSM->getRootSceneNode()->createChildSceneNode("boya"));

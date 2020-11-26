@@ -32,6 +32,6 @@ protected:
 	Ogre::Entity* p;
 	std::string name;
 	Ogre::MovablePlane* movPlane = nullptr;
-	Ogre::SceneNode* camRefNode = nullptr;
+	/*Ogre::SceneNode* camRefNode = nullptr;*/
 };
 

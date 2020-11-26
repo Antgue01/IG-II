@@ -4,6 +4,8 @@
 Plano::Plano(Ogre::SceneNode* node, int ancho, int largo, std::string name, std::string matName) : EntidadIG(node), name(name)
 {
 
+	
+
 	EntidadIG::addListener(this);
 
 	Ogre::MeshManager::getSingleton().createPlane(name,
@@ -29,11 +31,12 @@ void Plano::setReflejo(Ogre::Camera* cam)
 	Ogre::Camera* camRef = mSM->createCamera("RefCam");
 	camRef->setNearClipDistance(cam->getNearClipDistance());
 	camRef->setFarClipDistance(cam->getFarClipDistance());
-
-	camRefNode = mNode->createChildSceneNode("camRefNode");
-	camRefNode->attachObject(camRef);
+	camRef->setAutoAspectRatio(true);
 	
-	movPlane = new Ogre::MovablePlane(Ogre::Vector3::UNIT_Y, mNode->getPosition() - cam->getParentSceneNode()->getPosition());
+	cam->getParentSceneNode()->attachObject(camRef);
+	
+	
+	movPlane = new Ogre::MovablePlane(Ogre::Vector3::UNIT_Y, 0/*mNode->getPosition() - cam->getParentSceneNode()->getPosition()*/);
 	mNode->attachObject(movPlane);
 
 	camRef->enableReflection(movPlane);

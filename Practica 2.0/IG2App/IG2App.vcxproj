@@ -124,6 +124,7 @@
     <ClInclude Include="Avion.h" />
     <ClInclude Include="Boya.h" />
     <ClInclude Include="EntidadIG.h" />
+    <ClInclude Include="Face.h" />
     <ClInclude Include="IG2ApplicationContext.h" />
     <ClInclude Include="IG2App.h" />
     <ClInclude Include="Molino.h" />
@@ -136,6 +137,7 @@
     <ClCompile Include="Avion.cpp" />
     <ClCompile Include="Boya.cpp" />
     <ClCompile Include="EntidadIG.cpp" />
+    <ClCompile Include="Face.cpp" />
     <ClCompile Include="IG2ApplicationContext.cpp" />
     <ClCompile Include="IG2Main.cpp" />
     <ClCompile Include="IG2App.cpp" />

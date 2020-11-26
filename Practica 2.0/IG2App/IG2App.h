@@ -13,6 +13,7 @@
 #include "Avion.h"
 #include "Simbad.h"
 #include "Boya.h"
+#include "Face.h"
 
 class IG2App : public  OgreBites::IG2ApplicationContext, OgreBites::InputListener 
 {
@@ -40,6 +41,7 @@ protected:
   SceneNode* faceNode = nullptr;
   Boya* boya = nullptr;
   Simbad* simbad = nullptr;
+  Face* face = nullptr;
   
   
 };
