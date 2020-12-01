@@ -1,0 +1,148 @@
+material Practica1/cara 
+{
+    technique 
+    {
+       pass 
+       {
+           texture_unit 
+           {
+            texture spotlight_image.png
+            env_map spherical
+           }
+        }
+    }
+}
+
+material Practica1/piedrasFondo 
+{
+    technique 
+    {
+       pass 
+       {
+           texture_unit 
+           {
+            texture BeachStones.jpg            
+           }
+        }
+    }
+}
+
+material Practica1/agua 
+{
+    technique 
+    {
+       pass 
+       {
+           texture_unit 
+           {
+            texture Water02.jpg
+            scroll_anim 0.1 0.0
+           }
+        }
+    }
+}
+
+material Practica1/cuadros 
+{
+    technique 
+    {
+       pass 
+       {
+           texture_unit 
+           {
+            texture checker.png 
+           }
+        }
+    }
+}
+
+material Practica1/amarillo 
+{
+    technique 
+    {
+       pass 
+       {
+           diffuse 1 1 0
+        }
+    }
+}
+
+material Practica1/azul 
+{
+    technique 
+    {
+       pass 
+       {
+           diffuse 0 0 1
+        }
+    }
+}
+
+material Practica1/marron 
+{
+    technique 
+    {
+       pass 
+       {
+           diffuse 0.3686 0.2 0
+        }
+    }
+}
+
+material Practica1/naranja 
+{
+    technique 
+    {
+       pass 
+       {
+           diffuse 1 0.5450 0
+        }
+    }
+}
+
+material Practica1/negro 
+{
+    technique 
+    {
+       pass 
+       {
+           diffuse 0 0 0
+        }
+    }
+}
+
+material Practica1/piedra 
+{
+    technique 
+    {
+       pass 
+       {
+           texture_unit 
+           {
+            texture rockwall.tga
+           }
+        }
+    }
+}
+
+material Practica1/rojo 
+{
+    technique 
+    {
+       pass 
+       {
+           diffuse 1 0 0
+        }
+    }
+}
+
+material Practica1/verde 
+{
+    technique 
+    {
+       pass 
+       {
+           diffuse 0 1 0
+        }
+    }
+}

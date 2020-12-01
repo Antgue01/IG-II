@@ -1,0 +1,89 @@
+material IG2/SpaceGLSL{
+
+
+technique
+        {
+            pass
+            {
+
+                vertex_program SpaceVS glsl 
+                    {
+                        source SpaceVS.glsl 
+                        default_params 
+                            {
+                                param_named_auto modelViewProjMat worldviewproj_matrix
+                            }
+                    }
+
+                fragment_program SpaceFS glsl 
+                    {
+                        source SpaceFS.glsl 
+                        default_params 
+                            {
+                                param_named texturaL int 0
+                                param_named texturaM int 1 
+                                param_named BF float 0.5
+                            }
+                    }
+
+                lighting off
+
+                texture_unit
+                {
+                    texture lightMap.jpg
+                    colour_op modulate
+                }
+
+                texture_unit
+                {
+                    texture numbers.jpg
+                    colour_op modulate
+                } 
+            }
+        }
+}
+
+material IG2/AgujerosGLSL{
+
+
+technique
+        {
+            pass
+            {
+
+                vertex_program AgujerosVS glsl 
+                    {
+                        source AgujerosVS.glsl 
+                        default_params 
+                            {
+                                param_named_auto modelViewProjMat worldviewproj_matrix
+                            }
+                    }
+
+                fragment_program AgujerosFS glsl 
+                    {
+                        source AgujerosFS.glsl 
+                        default_params 
+                            {
+                                param_named texturaL int 0
+                                param_named_auto InColor  1 1 0 1
+                                param_named_auto OutColor  0 1 0 1
+                            }
+                    }
+
+                lighting off
+
+                texture_unit
+                {
+                    texture corrosion.jpg
+                }
+                
+                texture_unit
+                {
+                    texture BumpyMetal.jpg
+                }
+
+                
+            }
+        }
+}
