@@ -119,15 +119,18 @@ bool Simbad::keyPressed(const OgreBites::KeyboardEvent& evt)
 	return false;
 }
 
-void Simbad::receiveEvent(EntidadIG* entidad)
+void Simbad::receiveEvent(EntidadIG* entidad, MSG msg)
 {
-	dead = true;
-	dance->setEnabled(false);
-	runarms->setEnabled(false);
-	runlegs->setEnabled(false);
-	idle->setEnabled(true);
-	moverse->setEnabled(false);
-	mNode->roll(Ogre::Degree(90));
-	mNode->yaw(Ogre::Degree(90));
-	mNode->translate(0, -60, 0);
+	if (msg == MSG::none) {
+		dead = true;
+		dance->setEnabled(false);
+		runarms->setEnabled(false);
+		runlegs->setEnabled(false);
+		idle->setEnabled(true);
+		moverse->setEnabled(false);
+		mNode->roll(Ogre::Degree(90));
+		mNode->yaw(Ogre::Degree(90));
+		mNode->translate(0, -60, 0);
+
+	}
 }

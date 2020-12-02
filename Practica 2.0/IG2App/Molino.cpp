@@ -2,7 +2,7 @@
 #include <SDL_keycode.h>
 
 Molino::Molino(Ogre::SceneNode* node) : EntidadIG(node)
-{	
+{
 
 	EntidadIG::addListener(this);
 
@@ -38,8 +38,8 @@ void Molino::frameRendered(const Ogre::FrameEvent& evt)
 {
 	if (moverAspas)
 	{
-	  Ogre::Real time = evt.timeSinceLastFrame;
-	  aspas->roll(time * 15);
+		Ogre::Real time = evt.timeSinceLastFrame;
+		aspas->roll(time * 15);
 	}
 }
 
@@ -66,10 +66,13 @@ bool Molino::keyPressed(const OgreBites::KeyboardEvent& evt)
 }
 
 //---------------Apartado 31--------------------
-void Molino::receiveEvent(EntidadIG* entidad) 
+void Molino::receiveEvent(EntidadIG* entidad, MSG msg)
 {
-	entEsfera->setMaterialName("Practica1/rojo");
-	moverAspas = !moverAspas;
+	if (msg == MSG::none) {
+
+		entEsfera->setMaterialName("Practica1/rojo");
+		moverAspas = !moverAspas;
+	}
 }
 
 

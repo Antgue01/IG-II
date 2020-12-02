@@ -14,24 +14,29 @@
 #include <OgreMaterial.h>
 #include <OgreTechnique.h>
 #include <OgrePass.h>
+#include <OgreRenderTargetListener.h>
 
-
-
-class Plano : public EntidadIG 
+class Plano : public EntidadIG , public Ogre::RenderTargetListener, public Ogre::Viewport::Listener 
 {
 public:
 	Plano(Ogre::SceneNode* node,int ancho,int largo,std::string name, std::string matName);
 	virtual ~Plano() { delete movPlane; }
 
-	void receiveEvent(EntidadIG* entidad);
+	void receiveEvent(EntidadIG* entidad, MSG msg = MSG::none);
 
 	void setReflejo(Ogre::Camera* cam);
+	virtual void viewportDimensionsChanged(Ogre::Viewport* viewport);
+	virtual void preRenderTargetUpdate(const Ogre::RenderTargetEvent& evt) override;
+	virtual void postRenderTargetUpdate(const Ogre::RenderTargetEvent& evt) override;
+
 
 protected:
 	
 	Ogre::Entity* p;
 	std::string name;
 	Ogre::MovablePlane* movPlane = nullptr;
+	Ogre::Camera* camRef = nullptr;
+	Ogre::Camera* mainCamera = nullptr;
 	/*Ogre::SceneNode* camRefNode = nullptr;*/
 };
 
