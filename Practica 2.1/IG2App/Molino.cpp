@@ -66,10 +66,13 @@ bool Molino::keyPressed(const OgreBites::KeyboardEvent& evt)
 }
 
 //---------------Apartado 31--------------------
-void Molino::receiveEvent(EntidadIG* entidad) 
+void Molino::receiveEvent(EntidadIG* entidad,MSG msg) 
 {
-	entEsfera->setMaterialName("Practica1/rojo");
-	moverAspas = !moverAspas;
+	if (msg == MSG::none)
+	{
+	  entEsfera->setMaterialName("Practica1/rojo");
+	  moverAspas = !moverAspas;
+	}
 }
 
 

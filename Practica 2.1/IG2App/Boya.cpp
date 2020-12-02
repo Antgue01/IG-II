@@ -4,6 +4,7 @@ Boya::Boya(Ogre::SceneNode* n) : EntidadIG(n), ent(nullptr) {
 	ent = mSM->createEntity("uv_sphere.mesh");
 	mNode->attachObject(ent);
 	ent->setMaterialName("IG2/AgujerosGLSL");
+
 	int duracion = 16;
 	Ogre::Animation* anim = mSM->createAnimation("AnimVV", duracion);
 	Ogre::NodeAnimationTrack* track = anim->createNodeTrack(0);

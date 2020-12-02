@@ -1,19 +1,14 @@
 #pragma once
 #include "EntidadIG.h"
-#include <OgreRenderTargetListener.h>
-#include <OgreRenderTarget.h>
 #include <OgreSceneManager.h>
 
-class Face :public EntidadIG,public Ogre::RenderTargetListener   
+class Face :public EntidadIG  
 {
 public:
 	Face(Ogre::SceneNode* node);
 	virtual ~Face() {  }
-
-	virtual void preRenderTargetUpdate(const Ogre::RenderTargetEvent& evt);
-	virtual void postRenderTargetUpdate(const Ogre::RenderTargetEvent& evt);
-
+	void receiveEvent(EntidadIG* entidad, MSG msg);
 private:
-
+	Ogre::Entity* e = nullptr;
 };
 

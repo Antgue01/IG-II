@@ -94,7 +94,7 @@ bool Avion::keyPressed(const OgreBites::KeyboardEvent& evt)
 	//---------------Apartado 31--------------------
 	else if (evt.keysym.sym == SDLK_r)
 	{
-		sendEvent(this);
+		sendEvent(this,MSG::none);
 	}
 	return false;
 }
@@ -117,19 +117,21 @@ void Avion::frameRendered(const Ogre::FrameEvent& evt)
 
 }
 //---------------Apartado 31--------------------
-void Avion::receiveEvent(EntidadIG* entidad)
+void Avion::receiveEvent(EntidadIG* entidad, MSG msg)
 {
-	rotate = !rotate;
-	pSystem->setEmitting(true);
-	luz->setVisible(false);
-	cuerpoNode->setVisible(false);
-	AlaINode->setVisible(false);
-	AlaDNode->setVisible(false);
-	frenteNode->setVisible(false);
-	pilotoNode->setVisible(false);
-	helice1Node->setVisible(false);
-	helice2Node->setVisible(false);
-	BboardNode->setVisible(false);
-	smokeTrailNode->setVisible(false);
-
+	if (msg == MSG::none)
+	{
+		rotate = !rotate;
+		pSystem->setEmitting(true);
+		luz->setVisible(false);
+		cuerpoNode->setVisible(false);
+		AlaINode->setVisible(false);
+		AlaDNode->setVisible(false);
+		frenteNode->setVisible(false);
+		pilotoNode->setVisible(false);
+		helice1Node->setVisible(false);
+		helice2Node->setVisible(false);
+		BboardNode->setVisible(false);
+		smokeTrailNode->setVisible(false);
+	}
 }

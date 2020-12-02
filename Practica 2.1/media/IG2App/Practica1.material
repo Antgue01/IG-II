@@ -50,7 +50,7 @@ material Practica1/cuadros
        {
            texture_unit 
            {
-            texture checker.png 
+            texture checker.png
            }
         }
     }

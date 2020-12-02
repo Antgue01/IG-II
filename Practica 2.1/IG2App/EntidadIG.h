@@ -4,6 +4,7 @@
 #include <OgreSceneNode.h>
 #include <OgreEntity.h>
 
+enum MSG { none, flipUpward, flipRevert };
 
 class EntidadIG : public OgreBites::InputListener   
 {
@@ -17,8 +18,8 @@ public:
 	//A�adir entidad como listener al vector con push_back()
 	static void addListener(EntidadIG* entidad) { appListeners.push_back(entidad);};
 
-	void sendEvent(EntidadIG* entidad);
-	virtual void receiveEvent(EntidadIG* entidad) {};
+	void sendEvent(EntidadIG* entidad,MSG msg);
+	virtual void receiveEvent(EntidadIG* entidad, MSG msg) {};
 	Ogre::SceneNode* getNode() { return mNode; }
 protected:
 	Ogre::SceneNode* mNode;

@@ -32,6 +32,23 @@ material IG2App/Smoke
         }
 }
 
+
+material IG2App/cara 
+{
+    technique 
+    {
+       pass 
+       {
+           texture_unit 
+           {
+            texture cararotada.png
+            env_map spherical
+           }
+        }
+    }
+}
+
+
 material IG2App/space
 {
         technique

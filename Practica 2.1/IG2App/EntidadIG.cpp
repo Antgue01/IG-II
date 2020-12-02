@@ -13,8 +13,8 @@ EntidadIG::EntidadIG(Ogre::SceneNode* nodo) {
 	//mNode->removeAndDestroyAllChildren();
 }
 
-void EntidadIG::sendEvent(EntidadIG* entidad)
+void EntidadIG::sendEvent(EntidadIG* entidad, MSG msg)
 {
 	for (EntidadIG* e : appListeners)
-		e->receiveEvent(this);
+		e->receiveEvent(this,msg);
 }

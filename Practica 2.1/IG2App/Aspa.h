@@ -15,7 +15,7 @@ public:
 
 
 	virtual bool keyPressed(const OgreBites::KeyboardEvent& evt);
-	void receiveEvent(EntidadIG* entidad);
+	void receiveEvent(EntidadIG* entidad,MSG msg);
 	inline SceneNode* getCilindroNode() { return cilindroNode; }
 	inline SceneNode* getTableroNode() { return tableroNode; }
 

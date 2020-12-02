@@ -1,8 +1,8 @@
 #version 330 core
 uniform sampler2D texturaL;
 uniform sampler2D texturaM;
-uniform float BF; 
 in vec2 vUv0; 
+in vec2 vUv1;
 out vec4 fFragColor;
 void main() {
 vec3 colorL = vec3(texture(texturaL, vUv0)); 

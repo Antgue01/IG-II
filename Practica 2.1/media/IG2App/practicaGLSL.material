@@ -1,17 +1,13 @@
 material IG2/SpaceGLSL{
 
-
-technique
-        {
-            pass
-            {
-
-                vertex_program SpaceVS glsl 
+vertex_program SpaceVS glsl 
                     {
                         source SpaceVS.glsl 
                         default_params 
                             {
                                 param_named_auto modelViewProjMat worldviewproj_matrix
+                                param_named ZF float 0.5
+                                param_named_auto SinTiempo sintime_0_2pi 32
                             }
                     }
 
@@ -22,10 +18,22 @@ technique
                             {
                                 param_named texturaL int 0
                                 param_named texturaM int 1 
-                                param_named BF float 0.5
+                                
                             }
                     }
+technique
+        {
+            pass
+            {
 
+                vertex_program_ref SpaceVS
+                {
+                    
+                }
+                fragment_program_ref SpaceFS
+                {
+
+                }
                 lighting off
 
                 texture_unit
@@ -36,7 +44,7 @@ technique
 
                 texture_unit
                 {
-                    texture numbers.jpg
+                    texture spaceSky.jpg
                     colour_op modulate
                 } 
             }
@@ -45,13 +53,7 @@ technique
 
 material IG2/AgujerosGLSL{
 
-
-technique
-        {
-            pass
-            {
-
-                vertex_program AgujerosVS glsl 
+ vertex_program AgujerosVS glsl 
                     {
                         source AgujerosVS.glsl 
                         default_params 
@@ -66,13 +68,26 @@ technique
                         default_params 
                             {
                                 param_named texturaL int 0
-                                param_named_auto InColor  1 1 0 1
-                                param_named_auto OutColor  0 1 0 1
+                                param_named InColor float4 1 1 0 1
+                                param_named OutColor float4 0 1 0 1
                             }
                     }
+technique
+        {
+            pass
+            {
 
+                vertex_program_ref AgujerosVS 
+                {
+
+                }              
+                fragment_program_ref AgujerosFS
+                {
+
+                }
                 lighting off
-
+                cull_hardware none
+                cull_software none 
                 texture_unit
                 {
                     texture corrosion.jpg
@@ -81,6 +96,7 @@ technique
                 texture_unit
                 {
                     texture BumpyMetal.jpg
+                    colour_op modulate
                 }
 
                 
