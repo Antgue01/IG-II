@@ -15,20 +15,22 @@
 #include <OgreTechnique.h>
 #include <OgrePass.h>
 #include <OgreRenderTargetListener.h>
+#include <OgreRenderTarget.h>
 
-class Plano : public EntidadIG , public Ogre::RenderTargetListener, public Ogre::Viewport::Listener 
+class Plano : public EntidadIG, public Ogre::RenderTargetListener, public Ogre::Viewport::Listener
 {
 public:
 	Plano(Ogre::SceneNode* node,int ancho,int largo,std::string name, std::string matName);
 	virtual ~Plano() { delete movPlane; }
 
-	void receiveEvent(EntidadIG* entidad, MSG msg = MSG::none);
+	virtual void viewportDimensionsChanged(Ogre::Viewport* viewport);
+
+	virtual void preRenderTargetUpdate(const Ogre::RenderTargetEvent& evt);
+	virtual void postRenderTargetUpdate(const Ogre::RenderTargetEvent& evt);
+
+	void receiveEvent(EntidadIG* entidad, MSG msg);
 
 	void setReflejo(Ogre::Camera* cam);
-	virtual void viewportDimensionsChanged(Ogre::Viewport* viewport);
-	virtual void preRenderTargetUpdate(const Ogre::RenderTargetEvent& evt) override;
-	virtual void postRenderTargetUpdate(const Ogre::RenderTargetEvent& evt) override;
-
 
 protected:
 	
@@ -37,6 +39,5 @@ protected:
 	Ogre::MovablePlane* movPlane = nullptr;
 	Ogre::Camera* camRef = nullptr;
 	Ogre::Camera* mainCamera = nullptr;
-	/*Ogre::SceneNode* camRefNode = nullptr;*/
 };
 

@@ -30,8 +30,7 @@ bool Aspa::keyPressed(const OgreBites::KeyboardEvent& evt) {
 }
 
 //----------------Apartado 31--------------------
-void Aspa::receiveEvent(EntidadIG* entidad, MSG msg)
+void Aspa::receiveEvent(EntidadIG* entidad,MSG msg)
 {
-    if(msg == MSG::none)
-    cilindroNode->setVisible(false);
+    if (msg == MSG::none) cilindroNode->setVisible(false);
 }

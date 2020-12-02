@@ -32,6 +32,7 @@ material IG2App/Smoke
         }
 }
 
+
 material IG2App/cara 
 {
     technique 
@@ -46,6 +47,7 @@ material IG2App/cara
         }
     }
 }
+
 
 material IG2App/space
 {

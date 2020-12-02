@@ -13,7 +13,7 @@ public:
 	
 	virtual void frameRendered(const Ogre::FrameEvent& evt);
 	virtual bool keyPressed(const OgreBites::KeyboardEvent& evt);
-	void receiveEvent(EntidadIG* entidad, MSG msg = MSG::none);
+	void receiveEvent(EntidadIG* entidad, MSG msg);
 
 protected:
 	Ogre::SceneNode* esfera;
