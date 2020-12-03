@@ -68,6 +68,7 @@ material IG2/AgujerosGLSL{
                         default_params 
                             {
                                 param_named texturaL int 0
+                                param_named texturaM int 1
                                 param_named InColor float4 1 1 0 1
                                 param_named OutColor float4 0 1 0 1
                             }
@@ -96,7 +97,6 @@ technique
                 texture_unit
                 {
                     texture BumpyMetal.jpg
-                    colour_op modulate
                 }
 
                 
