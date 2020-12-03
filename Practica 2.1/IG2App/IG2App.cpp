@@ -28,7 +28,7 @@ void IG2App::shutdown()
 
 	if (m != nullptr) delete m;		
 	if (avion != nullptr) delete avion;
-	if (planoSuelo != nullptr) delete planoSuelo;
+	if (planoSuelo != nullptr) { planoSuelo->removeListeners(); delete planoSuelo; }
 	if (planoMolino != nullptr) delete planoMolino;
 	if (simbad != nullptr) delete simbad;
 	if (boya != nullptr) delete boya;

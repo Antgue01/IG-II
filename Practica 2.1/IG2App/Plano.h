@@ -32,6 +32,11 @@ public:
 
 	void setReflejo(Ogre::Camera* cam);
 
+	void removeListeners()
+	{
+		mainCamera->getViewport()->removeListener(this);
+		renderTexture->removeListener(this);
+	}
 protected:
 	
 	Ogre::Entity* p;
@@ -39,5 +44,6 @@ protected:
 	Ogre::MovablePlane* movPlane = nullptr;
 	Ogre::Camera* camRef = nullptr;
 	Ogre::Camera* mainCamera = nullptr;
+	Ogre::RenderTexture* renderTexture = nullptr;
 };
 

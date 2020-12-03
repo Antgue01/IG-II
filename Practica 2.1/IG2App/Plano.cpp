@@ -65,7 +65,7 @@ void Plano::setReflejo(Ogre::Camera* cam)
 		0, Ogre::PF_R8G8B8, Ogre::TU_RENDERTARGET);
 
  
-	Ogre::RenderTexture* renderTexture = rttRef->getBuffer()->getRenderTarget();
+	renderTexture = rttRef->getBuffer()->getRenderTarget();
 	Ogre::Viewport* vpt = renderTexture->addViewport(camRef); // ocupando toda
 	vpt->setClearEveryFrame(true); // la textura
 	vpt->setBackgroundColour(Ogre::ColourValue::White); // black/white
