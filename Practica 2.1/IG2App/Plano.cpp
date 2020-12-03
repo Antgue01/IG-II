@@ -18,9 +18,9 @@ Plano::Plano(Ogre::SceneNode* node, int ancho, int largo, std::string name, std:
 
 void Plano::viewportDimensionsChanged(Ogre::Viewport* viewport)
 {
-	camRef->setFarClipDistance(mainCamera->getFarClipDistance());
-	camRef->setNearClipDistance(mainCamera->getNearClipDistance());
-	camRef->setAspectRatio(mainCamera->getAspectRatio());
+	//camRef->setFarClipDistance(mainCamera->getFarClipDistance());
+	//camRef->setNearClipDistance(mainCamera->getNearClipDistance());
+	//camRef->setAspectRatio(mainCamera->getAspectRatio());
 	Ogre::RealRect frust = mainCamera->getFrustumExtents();
 	camRef->setFrustumExtents(frust.left,frust.right,frust.top,frust.bottom);
 }
