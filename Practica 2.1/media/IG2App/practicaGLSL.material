@@ -53,7 +53,7 @@ technique
 
 material IG2/AgujerosGLSL{
 
- vertex_program AgujerosVS glsl 
+               vertex_program AgujerosVS glsl 
                     {
                         source AgujerosVS.glsl 
                         default_params 
@@ -71,6 +71,15 @@ material IG2/AgujerosGLSL{
                                 param_named texturaM int 1
                                 param_named InColor float4 1 1 0 1
                                 param_named OutColor float4 0 1 0 1
+
+                                param_named lightAmbient float3 1.0 1.0 1.0
+                                param_named lightDiffuse float3 1.0 1.0 1.0
+                                param_named lightPosition float4 0 -1 -1 0
+                                param_named materialDiffuse float3 0.5 0.5 0.5
+                                
+                                param_named_auto modelViewMat worldview_matrix
+                                param_named_auto normalMat inverse_transpose_worldview_matrix
+
                             }
                     }
 technique
@@ -86,7 +95,7 @@ technique
                 {
 
                 }
-                lighting off
+                //lighting off
                 cull_hardware none
                 cull_software none 
                 texture_unit
