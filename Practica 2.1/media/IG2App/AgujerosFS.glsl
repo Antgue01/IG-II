@@ -15,8 +15,10 @@ uniform vec4 OutColor;
 
 in vec2 vUv0; 
 in vec3 vXxxNormal; 
-in vec4 vXxxVertex; 
+in vec3 vXxxVertex; 
+
 out vec4 fFragColor;
+
 float diff(vec3 cVertex, vec3 cNormal)
 {
   vec3 lightDir = lightPosition.xyz;
@@ -37,14 +39,15 @@ vec4 backColor;
 // ambient
 vec3 ambient = lightAmbient * materialDiffuse;
 // diffuse en view space
-vec3 viewVertex = vec3(modelViewMat * vXxxVertex);
-vec3 viewNormal = normalize(vec3(normalMat * vec4(vXxxNormal,0)));
-vec3 diffuse = diff(viewVertex, viewNormal) * lightDiffuse * materialDiffuse;
+//vec3 viewVertex = vec3(modelViewMat * vXxxVertex);
+//vec3 viewNormal = normalize(vec3(normalMat * vec4(vXxxNormal,0)));
+
+vec3 diffuse = diff(vXxxVertex, vXxxNormal) * lightDiffuse * materialDiffuse;
 
 //frontColor = ambient + diffuse; // + specular
 frontColor = vec4(ambient + diffuse,1.0);
 
-diffuse = diff(viewVertex,-viewNormal) * lightDiffuse * materialDiffuse;
+diffuse = diff(vXxxVertex,-vXxxNormal) * lightDiffuse * materialDiffuse;
 
 //backColor = ambient + diffuse; // + specular
 backColor = vec4(ambient + diffuse,1.0);
