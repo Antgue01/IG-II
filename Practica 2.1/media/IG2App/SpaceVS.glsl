@@ -2,7 +2,7 @@
 in vec4 vertex; 
 in vec2 uv0; 
 uniform mat4 modelViewProjMat; 
-uniform float ZF;
+//uniform float ZF;
 uniform float SinTiempo;
 out vec2 vUv0;
 out vec2 vUv1;

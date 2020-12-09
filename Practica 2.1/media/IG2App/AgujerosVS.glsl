@@ -17,6 +17,7 @@ vUv0 = uv0;
 
 gl_Position = modelViewProjMat * vertex; 
 
+// diffuse en view space
 vXxxVertex = vec3(modelViewMat * vertex);
 vXxxNormal = normalize(vec3(normalMat * vec4(normal,0)));
 

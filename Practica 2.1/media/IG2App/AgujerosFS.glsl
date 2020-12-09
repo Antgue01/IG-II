@@ -12,6 +12,7 @@ uniform sampler2D texturaL;
 uniform sampler2D texturaM;
 uniform vec4 InColor;
 uniform vec4 OutColor;
+uniform float Flipping;
 
 in vec2 vUv0; 
 in vec3 vXxxNormal; 
@@ -32,31 +33,26 @@ float diff(vec3 cVertex, vec3 cNormal)
 void main() 
 {
 
+vec3 textColor = vec3(texture(texturaL, vUv0)); 
+if(textColor.r < 0.5)
+    discard;
+
 vec4 frontColor;
 vec4 backColor;
-
-
 // ambient
 vec3 ambient = lightAmbient * materialDiffuse;
-// diffuse en view space
-//vec3 viewVertex = vec3(modelViewMat * vXxxVertex);
-//vec3 viewNormal = normalize(vec3(normalMat * vec4(vXxxNormal,0)));
 
 vec3 diffuse = diff(vXxxVertex, vXxxNormal) * lightDiffuse * materialDiffuse;
 
-//frontColor = ambient + diffuse; // + specular
 frontColor = vec4(ambient + diffuse,1.0);
 
 diffuse = diff(vXxxVertex,-vXxxNormal) * lightDiffuse * materialDiffuse;
 
-//backColor = ambient + diffuse; // + specular
 backColor = vec4(ambient + diffuse,1.0);
 
 
-vec3 textColor = vec3(texture(texturaL, vUv0)); 
-if(textColor.r < 0.5)
-    discard;
-if(gl_FrontFacing)    
+bool frontFacing = (Flipping > -1)? gl_FrontFacing : ! gl_FrontFacing;
+if(frontFacing)    
     fFragColor = vec4(texture(texturaM,vUv0)) * frontColor * OutColor;
 else
     fFragColor = backColor * InColor;
