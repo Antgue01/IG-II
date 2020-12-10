@@ -4,6 +4,8 @@
 #include <OgreInput.h>
 #include <SDL_keycode.h>
 #include <OgreMeshManager.h>
+#include <OgreCompositorManager.h>
+#include <OgreCompositor.h>
 
 using namespace Ogre;
 
@@ -58,6 +60,7 @@ void IG2App::setup(void)
 	addInputListener(mTrayMgr);
 
 	addInputListener(this);
+
 	setupScene();
 }
 
@@ -79,6 +82,9 @@ void IG2App::setupScene(void)
 
 	// and tell it to render into the main window
 	Viewport* vp = getRenderWindow()->addViewport(cam);
+	CompositorManager::getSingleton().addCompositor(vp,"IG2/Luminance");
+	CompositorManager::getSingleton().setCompositorEnabled(vp,"IG2/Luminance", true);
+
 	vp->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 0.0)); //0.7, 0.8, 0.9
 
 	//------------------------------------------------------------------------

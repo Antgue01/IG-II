@@ -15,8 +15,8 @@ uniform vec4 OutColor;
 uniform float Flipping;
 
 in vec2 vUv0; 
-in vec3 vXxxNormal; 
-in vec3 vXxxVertex; 
+in vec3  modelViewNormal; 
+in vec3  modelViewVertex; 
 
 out vec4 fFragColor;
 
@@ -42,11 +42,11 @@ vec4 backColor;
 // ambient
 vec3 ambient = lightAmbient * materialDiffuse;
 
-vec3 diffuse = diff(vXxxVertex, vXxxNormal) * lightDiffuse * materialDiffuse;
+vec3 diffuse = diff( modelViewVertex, modelViewNormal) * lightDiffuse * materialDiffuse;
 
 frontColor = vec4(ambient + diffuse,1.0);
 
-diffuse = diff(vXxxVertex,-vXxxNormal) * lightDiffuse * materialDiffuse;
+diffuse = diff( modelViewVertex,-modelViewNormal) * lightDiffuse * materialDiffuse;
 
 backColor = vec4(ambient + diffuse,1.0);
 

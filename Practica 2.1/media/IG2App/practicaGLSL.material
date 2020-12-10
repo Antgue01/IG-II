@@ -116,3 +116,21 @@ technique
             }
         }
 }
+material IG2/LuminancePS
+{
+
+    vertex_program RenderQuadVS glsl
+    {
+        source RenderQuadVS.glsl 
+
+    }
+    fragment_program LuminancePS glsl
+    {
+        source LuminancePS.glsl
+        default_params 
+        {
+            param_named RTT0 int 0 
+        }
+    }
+    
+}
