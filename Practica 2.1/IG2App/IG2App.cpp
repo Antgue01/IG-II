@@ -15,6 +15,12 @@ bool IG2App::keyPressed(const OgreBites::KeyboardEvent& evt)
 	{
 		getRoot()->queueEndRendering();
 	}
+	else if (evt.keysym.sym == SDLK_l)
+	{
+		activeCompositor = !activeCompositor;
+
+		Ogre::CompositorManager::getSingleton().setCompositorEnabled(vp, "IG2/Luminance", activeCompositor);
+	}
 	
 	return true;
 }
@@ -81,9 +87,10 @@ void IG2App::setupScene(void)
 	//mCamNode->setDirection(Ogre::Vector3(0, 0, -1));  
 
 	// and tell it to render into the main window
-	Viewport* vp = getRenderWindow()->addViewport(cam);
-	CompositorManager::getSingleton().addCompositor(vp,"IG2/Luminance");
-	CompositorManager::getSingleton().setCompositorEnabled(vp,"IG2/Luminance", true);
+    vp = getRenderWindow()->addViewport(cam);
+
+	Ogre::CompositorManager::getSingleton().addCompositor(vp,"IG2/Luminance");
+	Ogre::CompositorManager::getSingleton().setCompositorEnabled(vp,"IG2/Luminance", activeCompositor);
 
 	vp->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 0.0)); //0.7, 0.8, 0.9
 

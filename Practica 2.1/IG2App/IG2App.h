@@ -43,7 +43,8 @@ protected:
   Simbad* simbad = nullptr;
   Face* face = nullptr;
   
-  
+  bool activeCompositor = true;
+  Viewport* vp = nullptr;
 };
 
 #endif
