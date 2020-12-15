@@ -21,6 +21,11 @@ bool IG2App::keyPressed(const OgreBites::KeyboardEvent& evt)
 
 		Ogre::CompositorManager::getSingleton().setCompositorEnabled(vp, "IG2/Luminance", activeCompositor);
 	}
+	else if (evt.keysym.sym == SDLK_k)
+    {
+		activeCompositor2 = !activeCompositor2;
+		Ogre::CompositorManager::getSingleton().setCompositorEnabled(vp, "IG2/EdgeEmboss", activeCompositor2);
+	}
 	
 	return true;
 }
@@ -91,6 +96,9 @@ void IG2App::setupScene(void)
 
 	Ogre::CompositorManager::getSingleton().addCompositor(vp,"IG2/Luminance");
 	Ogre::CompositorManager::getSingleton().setCompositorEnabled(vp,"IG2/Luminance", activeCompositor);
+
+	Ogre::CompositorManager::getSingleton().addCompositor(vp, "IG2/EdgeEmboss");
+	Ogre::CompositorManager::getSingleton().setCompositorEnabled(vp, "IG2/EdgeEmboss", activeCompositor2);
 
 	vp->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 0.0)); //0.7, 0.8, 0.9
 

@@ -44,6 +44,7 @@ protected:
   Face* face = nullptr;
   
   bool activeCompositor = true;
+  bool activeCompositor2 = true;
   Viewport* vp = nullptr;
 };
 
