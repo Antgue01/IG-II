@@ -182,6 +182,7 @@ material IG2/EdgeEmbossPS
         default_params 
         {
             param_named RTT0 int 0 
+            param_named kernel float9 0 0 0 0 1 0 0 0 0
         }
     }
 
@@ -191,7 +192,6 @@ material IG2/EdgeEmbossPS
         pass
         {
             
-
             depth_check off // desactivar el depth‐buffer
             depth_write off
             vertex_program_ref RenderQuadVS 
@@ -206,6 +206,7 @@ material IG2/EdgeEmbossPS
             {
                 // sin imagen de archivo ‐> previous render target
                 filtering none //tiene la resolución del viewport
+                tex_address_mode clamp
                 
             }
         }
