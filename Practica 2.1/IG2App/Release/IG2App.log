@@ -1,7 +1,1 @@
-﻿  Generando código
-  0 of 772 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Generación de código finalizada
-SDL2main.lib(SDL_windows_main.obj) : warning LNK4099: no se encontró PDB 'SDL2main.pdb' con 'SDL2main.lib(SDL_windows_main.obj)' o en 'C:\Users\felip\OneDrive\Desktop\Programas\Repositorios\IG-II\Practica 2.1\bin\SDL2main.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
-  IG2App.vcxproj -> C:\Users\felip\OneDrive\Desktop\Programas\Repositorios\IG-II\Practica 2.1\bin\IG2AppRelease.exe
+﻿
