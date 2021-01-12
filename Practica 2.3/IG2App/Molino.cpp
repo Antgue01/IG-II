@@ -72,7 +72,7 @@ void Molino::receiveEvent(EntidadIG* entidad,MSG msg)
 {
 	if (msg == MSG::none)
 	{
-	  entEsfera->setMaterialName("Practica1/rojo");
+	  //entEsfera->setMaterialName("Practica1/rojo");
 	  moverAspas = !moverAspas;
 	}
 }

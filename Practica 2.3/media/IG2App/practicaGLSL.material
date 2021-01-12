@@ -221,7 +221,8 @@ material IG2/ExplotaGS
         source ExplotaVS.glsl 
         default_params
         {
-           
+           param_named_auto modelViewMat worldview_matrix
+           param_named_auto normalMat inverse_transpose_worldview_matrix
         }
         
 
@@ -248,6 +249,14 @@ material IG2/ExplotaGS
            param_named texturaL int 0
            param_named texturaM int 1
            param_named_auto Flipping render_target_flipping 
+           
+            param_named_auto lightAmbient ambient_light_colour 0
+                                
+            param_named_auto lightDiffuse light_diffuse_colour 0
+                                
+            param_named_auto lightPosition light_position_view_space 0
+                                
+            param_named materialDiffuse float3 0.5 0.5 0.5
         }
     }
     technique 
@@ -314,8 +323,6 @@ material IG2/NormalesGS
 }
 material IG2/Explota2GS 
 {
-
-   
     geometry_program Explota2GS glsl 
     { // también para el GS
         source Explota2GS.glsl 
@@ -327,11 +334,12 @@ material IG2/Explota2GS
         default_params 
         { // para las uniform del shader
             param_named_auto modelViewProjMat worldviewproj_matrix
-            param_named_auto angle time_0_2pi 32
-            param_named  scale float 10
+            param_named_auto tiempo2pi time_0_2pi 32
+            param_named scale float 50
+            
         }    
     }
-    
+  
     technique 
     { 
         pass

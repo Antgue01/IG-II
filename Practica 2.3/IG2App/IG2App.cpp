@@ -58,6 +58,10 @@ void IG2App::setup(void)
 	
 	mSM = mRoot->createSceneManager();
 	
+	//Se establece el color ambiente
+	Ogre::ColourValue color(0.2, 0.2, 0.2);
+	mSM->setAmbientLight(color);
+
 	//mSM->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE);
 		
 
@@ -101,7 +105,7 @@ void IG2App::setupScene(void)
 	Ogre::CompositorManager::getSingleton().setCompositorEnabled(vp, "IG2/EdgeEmboss", activeCompositor2);
 
 	vp->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 0.0)); //0.7, 0.8, 0.9
-
+	
 	//------------------------------------------------------------------------
 
 	// without light we would just get a black screen 

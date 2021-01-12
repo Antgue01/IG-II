@@ -3,7 +3,8 @@
 Boya::Boya(Ogre::SceneNode* n) : EntidadIG(n), ent(nullptr) {
 	ent = mSM->createEntity("uv_sphere.mesh");
 	mNode->attachObject(ent);
-	ent->setMaterialName("IG2/AgujerosGLSL");
+	matName = "IG2/AgujerosGLSL";
+	ent->setMaterialName(matName); //IG2/ExplotaGS  
 
 	int duracion = 16;
 	Ogre::Animation* anim = mSM->createAnimation("AnimVV", duracion);
@@ -45,8 +46,23 @@ bool Boya::keyPressed(const OgreBites::KeyboardEvent& evt)
 {
 	if (evt.keysym.sym == SDLK_r)
 	{
-		//ent->setMaterialName("IG2/ExplotaGS");
-		ent->setMaterialName("IG2/Explota2GS");
+		animS->setEnabled(false);
+		if (matName == "IG2/AgujerosGLSL") 
+		{ 
+			matName = "IG2/ExplotaGS";
+			ent->setMaterialName(matName); 
+		}
+		else if (matName == "IG2/ExplotaGS")
+		{
+			matName = "IG2/Explota2GS";
+			ent->setMaterialName(matName);
+		}
+		else if (matName == "IG2/Explota2GS")
+		{
+			matName = "IG2/AgujerosGLSL";
+			ent->setMaterialName(matName);
+		}
+		
 	}
 	return false;
 }
@@ -54,5 +70,5 @@ bool Boya::keyPressed(const OgreBites::KeyboardEvent& evt)
 
 void Boya::frameRendered(const Ogre::FrameEvent& evt)
 {
-	animS->addTime(evt.timeSinceLastFrame);
+	//animS->addTime(evt.timeSinceLastFrame);
 }

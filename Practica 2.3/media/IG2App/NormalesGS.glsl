@@ -22,12 +22,12 @@ vec3 clampColor(vec3 c){
     }
 void generateLine(int index) { // normal al vértice index (0, 1, 2)
     if(normals==1){
-        vColor = gNormal[index];
-        vColor = clampColor(vColor);
+        vColor = abs(gNormal[index]);
+        //vColor = clampColor(vColor);
         gl_Position = modelViewProjMat * gl_in[index].gl_Position;
         EmitVertex(); // 1º vértice de la línea con color y …
-        vColor = gNormal[index];
-        vColor = clampColor(vColor);
+        vColor = abs(gNormal[index]);
+        //vColor = clampColor(vColor);
         gl_Position = modelViewProjMat * (gl_in[index].gl_Position + vec4(gNormal[index],0) * SIZE);
         EmitVertex(); // 2º vértice de la línea con color y …
         EndPrimitive(); // línea formada por los 2 vértices emitidos

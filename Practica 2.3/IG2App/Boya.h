@@ -20,6 +20,6 @@ public:
 protected:
 	Ogre::Entity* ent;
 	Ogre::AnimationState* animS;
-
+	std::string matName;
 };
 
