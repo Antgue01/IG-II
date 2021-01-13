@@ -70,5 +70,5 @@ bool Boya::keyPressed(const OgreBites::KeyboardEvent& evt)
 
 void Boya::frameRendered(const Ogre::FrameEvent& evt)
 {
-	//animS->addTime(evt.timeSinceLastFrame);
+	animS->addTime(evt.timeSinceLastFrame);
 }

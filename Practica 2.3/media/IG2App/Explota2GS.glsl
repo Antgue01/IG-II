@@ -14,6 +14,7 @@ uniform float angle;
 uniform float tiempo2pi;
 uniform mat4 modelViewProjMat; // para pasar a Clip-Space
 uniform float scale; // longitud del desplazamiento
+const float scaleEffect=50;
 
 vec3 baricentro(vec3 vertex[3]) { 
 		vec3 a = vertex[0];
@@ -32,6 +33,13 @@ vec3 rotate(vec3 dir, float anglle){
         }
     return aux;
 }
+vec3 normalVec(vec3 vertex[3]) { 
+		vec3 a = vertex[0];
+		vec3 b = vertex[1];
+		vec3 c = vertex[2];
+		vec3 n = normalize(cross(b - a, c - a));
+		return n;
+ }
 
 void main() {
 	vec3 vertices[3] = vec3[]( gl_in[0].gl_Position.xyz,
@@ -39,10 +47,11 @@ void main() {
 	gl_in[2].gl_Position.xyz );
 
 	vec3 dir = baricentro(vertices); 
+	// vec3 dir = normalVec(vertices); 
 
 	for (int i=0; i<3; ++i) 
 	{ // para emitir 3 vértices
-		vec3 posDes = vertices[i] + dir * scale;
+		vec3 posDes = vertices[i] + dir * scale*scaleEffect;
 
         posDes = rotate(posDes,tiempo2pi);
 

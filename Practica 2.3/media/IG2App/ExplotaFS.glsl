@@ -12,7 +12,6 @@ uniform vec3 lightAmbient;
 uniform vec3 lightDiffuse;
 uniform vec4 lightPosition;
 
-uniform vec3 materialDiffuse;
 
 float diff(vec3 cVertex, vec3 cNormal)
 {
@@ -29,13 +28,13 @@ void main() {
 vec4 frontColor;
 vec4 backColor;
 // ambient
-vec3 ambient = lightAmbient * materialDiffuse;
+vec3 ambient = lightAmbient * vec4(texture(texturaM,Guv0)).xyz* vec4(texture(texturaL,Guv0)).xyz;
 
-vec3 diffuse = diff(GmodelViewVertex, GmodelViewNormal) * lightDiffuse * materialDiffuse;
+vec3 diffuse = diff(GmodelViewVertex, GmodelViewNormal) * lightDiffuse *vec4(texture(texturaM,Guv0)).xyz ;
 
 frontColor = vec4(ambient + diffuse,1.0);
 
-diffuse = diff( GmodelViewVertex,-GmodelViewNormal) *lightDiffuse * materialDiffuse;
+diffuse = diff( GmodelViewVertex,-GmodelViewNormal) *lightDiffuse * vec4(texture(texturaL,Guv0)).xyz;
 
 backColor = vec4(ambient + diffuse,1.0);
 

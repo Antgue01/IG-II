@@ -183,6 +183,7 @@ material IG2/EdgeEmbossPS
         {
             param_named RTT0 int 0 
             param_named kernel float9 0 0 0 0 1 0 0 0 0
+            param_named sumaTotalPesos float 1
         }
     }
 
@@ -200,6 +201,9 @@ material IG2/EdgeEmbossPS
             fragment_program_ref Kernel3x3PS 
             {
                 param_named kernel float9 -4 -2 0 -2 1 2 0 2 4 
+                param_named sumaTotalPesos float 1
+
+                
             }
 
             texture_unit RTT0
@@ -256,7 +260,7 @@ material IG2/ExplotaGS
                                 
             param_named_auto lightPosition light_position_view_space 0
                                 
-            param_named materialDiffuse float3 0.5 0.5 0.5
+          
         }
     }
     technique 
@@ -335,7 +339,7 @@ material IG2/Explota2GS
         { // para las uniform del shader
             param_named_auto modelViewProjMat worldviewproj_matrix
             param_named_auto tiempo2pi time_0_2pi 32
-            param_named scale float 50
+            param_named_auto scale time
             
         }    
     }

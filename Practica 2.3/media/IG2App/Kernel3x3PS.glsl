@@ -3,6 +3,7 @@ in vec2 vUv0;
 uniform sampler2D RTT0; // textura con la escena
 out vec4 fFragColor;
 uniform float kernel[9];
+uniform float sumaTotalPesos;
 
 void main() 
 {
@@ -22,18 +23,12 @@ void main()
                      vec2( incS, -incT) // bottom‐right
                      );
 
-   float sumTotal=0;
-   for(int i=0;i<9;i++)
-   {
-      sumTotal+=kernel[i];
-   }
- 
 
    vec4 color = vec4(0.0);
    for(int i = 0; i < 9; i++) 
    {
       vec4 col = texture(RTT0,vUv0+incUV[i]);
-      color += col * kernel[i]/sumTotal;
+      color += col * kernel[i]/sumaTotalPesos;
    }
    fFragColor = color;
 
