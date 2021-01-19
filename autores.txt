@@ -1,3 +1,4 @@
-Antonio Jesús Guerra Garduño
 Felipe Cuadra Plaza
-
+Antonio Jesús Guerra Garduño
+Hicimos los opcionales de la cara y el ajuste del
+reflejo al cambiar el tamaño de la ventana
