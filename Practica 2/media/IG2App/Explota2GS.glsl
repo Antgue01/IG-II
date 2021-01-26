@@ -14,7 +14,7 @@ uniform float angle;
 uniform float tiempo2pi;
 uniform mat4 modelViewProjMat; // para pasar a Clip-Space
 uniform float scale; // longitud del desplazamiento
-const float scaleEffect=50;
+const float VD=50;
 
 vec3 baricentro(vec3 vertex[3]) { 
 		vec3 a = vertex[0];
@@ -24,13 +24,11 @@ vec3 baricentro(vec3 vertex[3]) {
 		return normalize(n);
 }
 
-vec3 rotate(vec3 dir, float anglle){
+vec3 rotate(vec3 dir, float anglle)
+{
 
-	vec3 aux;
-        for(int i=0;i<3;i++)
-        {
-            aux = dir*mat3(cos(anglle), 0, sin(anglle), 0,1,0,-sin(anglle),0, cos(anglle));
-        }
+	vec3 aux;      
+    aux = dir*mat3(cos(anglle), 0, sin(anglle), 0,1,0,-sin(anglle),0, cos(anglle));       
     return aux;
 }
 
@@ -45,7 +43,7 @@ void main() {
 
 	for (int i=0; i<3; ++i) 
 	{ // para emitir 3 vértices
-		vec3 posDes = vertices[i] + dir * scale*scaleEffect;
+		vec3 posDes = vertices[i]*scale + dir * VD;
 
         posDes = rotate(posDes,tiempo2pi);
 
@@ -53,8 +51,8 @@ void main() {
 		gl_Position = modelViewProjMat * vec4(posDes,1.0);
 		// paso a Clip-Space
 		Guv0=Vuv0[i];
-        GmodelViewNormal = modelViewNormal[i];
-        GmodelViewVertex = modelViewVertex[i];
+        GmodelViewNormal = rotate(modelViewNormal[i],tiempo2pi);
+        GmodelViewVertex = rotate(modelViewVertex[i],tiempo2pi);
 
 		EmitVertex(); // al no declarar ninguna variable out, los vertices del
 	// triángulo emitido no llevan asociados atributos, solo las coordenadas

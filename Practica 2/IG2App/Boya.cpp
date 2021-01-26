@@ -52,7 +52,7 @@ bool Boya::keyPressed(const OgreBites::KeyboardEvent& evt)
 		ent->setMaterialName(matName);
 	
 
-}
+	}
 return false;
 }
 

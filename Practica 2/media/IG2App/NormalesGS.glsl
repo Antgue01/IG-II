@@ -9,17 +9,7 @@ const float SIZE = 50; // para la longitud de la línea
 uniform mat4 modelViewProjMat; 
 uniform float normals;
 
-vec3 clampColor(vec3 c){
 
-    if(c.r < 0) 
-        c.r = 0;
-    if(c.g < 0)
-        c.g = 0;
-    if(c.b < 0)
-        c.b = 0;
-    
-    return c;
-    }
 void generateLine(int index) { // normal al vértice index (0, 1, 2)
     if(normals==1){
         vColor = abs(gNormal[index]);

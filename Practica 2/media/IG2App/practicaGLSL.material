@@ -294,7 +294,7 @@ material IG2/NormalesGS
         default_params 
         { // para las uniform del shader
             param_named_auto modelViewProjMat worldviewproj_matrix
-            param_named normals float 1
+            param_named normals float 0
         }
     }
     vertex_program NormalesVS glsl
